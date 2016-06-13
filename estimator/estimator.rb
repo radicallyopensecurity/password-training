@@ -19,15 +19,15 @@ options = {}
 
 # Get password to test
 puts 'Enter password to test'
-options[ :password ] = cli.ask("Password:  ") { |q| q.default = 'P4$$w0rd' }
+options[ :password ] = cli.ask( 'Password:  ' ) { |q| q.default = 'P4$$w0rd' }
 puts ''
 
 # Set parameters to determine cracking speed (Attempts/s)
 options[ :online ] = {
 	'Speeds' => {
-		'100 mbit' => 1000,
-		'1 gbit'   => 10000,
-		'10 gbit'  => 100000
+		'100 mbit' => 14000,
+		'1 gbit'   => 140000,
+		'10 gbit'  => 1400000
 	}
 }
 
