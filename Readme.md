@@ -1,11 +1,16 @@
 # Password cracking demo/notes
 
 ## Password cracking estimator
-This script makes an estimation of how long it will take to crack a given password.
+This script provides an estimate of how long it will take to crack a given password. For online attacks it is assumed the network uplink will be the bottleneck. For offline cracking it assumes the available processing power is limiting factor.
 
 ### Online cracking
-The online password cracking is based on an nginx http server doing http basic auth. The test was done on a 100 mbit line, maxing out the line speed. The gigabit and 10 gigabit speeds have been extrapolated from this figure, but take note that such an attack also requires significant resources on the server side. During this test the server used about the equivilent of 12 GHz of CPU power, distributed over serveral cores.
-Tests were done over plain http, with the target host being on the internet. Both the usage of SSL/TLS cause overhead, resulting in less login attempts per second.
+The online password cracking is based on an nginx http server doing http basic auth. The test was performed on a 100 mbit line, maxing out the line speed. The gigabit and 10 gigabit speeds have been extrapolated from this figure, but take note that such an attack also requires significant resources on the server side.
+
+During this test the server used the equivilent of 12 GHz of CPU power, distributed over serveral cores. This is mostly because of the hashing that needs to be done server-side. The default htpasswd option was used, which means the server will need to do 1000 rounds of MD5 for each login attempt.
+Significantly less server resources are needed when less secure password storage is used. A password stored plain-text in a database will require far less server resources per request, making it more likely an attacker is able to max out the line speed on a lower end server.
+
+Tests were done over plain http, the usage of SSL/TLS will cause overhead, resulting in less login attempts per second.
+
 This test simulates looking for a password for a specific user. Other forms of brute force attacks may use a public or leaked list of usernames, searching for those that have weak passwords set.
 
 ### Offline cracking
