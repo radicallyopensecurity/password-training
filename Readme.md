@@ -24,6 +24,7 @@ In addition, the hashing algorithm makes the password entirely uppercase before 
 
 **note on scrypt hashes**
 Scrypt has a strong demand for memory in addition to processing power for its algorithm. This is why the performnce benchmarks for scrypt do not scale with compute power as linearly as most algorithms. The memory available on the GPU running the benchmark also strongly influences the results.
+
 ---
 
 ## Offline hash cracking
