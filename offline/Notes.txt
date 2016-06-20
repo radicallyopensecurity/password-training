@@ -1,3 +1,6 @@
-johntheripper/jhonny
+johntheripper
 oclhashcat
-(multiforce)
+
+LM & NTLM hashes
+ |-> CPU crack with john
+ `-> Gpu crack with hashcat if available.

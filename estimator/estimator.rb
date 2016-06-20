@@ -33,10 +33,10 @@ options[ :online ] = {
 
 options[ :offline ] = {
 	'Threat actor' => {
-		'Casual attacker'   => { 'MD5' => 10443100000,     'SHA1' => 3349800000,     'SHA256' => 1321800000,     'bcrypt' => 8984 },
-		'Funded attacker'   => { 'MD5' => 200300000000,    'SHA1' => 68771000000,    'SHA256' => 23012100000,    'bcrypt' => 105700 },
-		'Large corporation' => { 'MD5' => 2003000000000,   'SHA1' => 687710000000,   'SHA256' => 230121000000,   'bcrypt' => 1057000 },
-		'Nation state'      => { 'MD5' => 200300000000000, 'SHA1' => 68771000000000, 'SHA256' => 23012100000000, 'bcrypt' => 105700000 }
+		'Casual attacker'   => { MD5: 10443100000,     SHA1: 3349800000,     SHA256: 1321800000,     LM: 1343700000,      NTLM: 21427800000,     bcrypt: 8984 },
+		'Funded attacker'   => { MD5: 200300000000,    SHA1: 68771000000,    SHA256: 23012100000,    LM: 148400000000,    NTLM: 334000000000,    bcrypt: 105700 },
+		'Large corporation' => { MD5: 2003000000000,   SHA1: 687710000000,   SHA256: 230121000000,   LM: 1484000000000,   NTLM: 3340000000000,   bcrypt: 1057000 },
+		'Nation state'      => { MD5: 200300000000000, SHA1: 68771000000000, SHA256: 23012100000000, LM: 148400000000000, NTLM: 334000000000000, bcrypt: 105700000 }
 	}
 }
 
@@ -120,7 +120,35 @@ rows << :separator
 options[ :offline ][ 'Threat actor' ].each do | actor, hashes |
 	rows << [ actor, '', '' ]
 	hashes.each do | hash, attempts |
-		rows << [ '', hash, runtime( options[ :charsets ][ :options ] / attempts / 2 ) ]
+		if hash == :LM
+			# Fix charset
+			if options[ :charsets ][ :low ] == true and options[ :charsets ][ :upp ] == true
+				s = options[ :charsets ][ :size ] - 26
+			else
+				s = options[ :charsets ][ :size ]
+			end
+
+			# LM hashes are 2 hashes of 7 chars max
+			if options[ :length ] >= 14
+				h1l = 7
+				h2l = 7
+			elsif options[ :length ] > 7
+				h1l = 7
+				h2l = options[ :length ] - 7
+			elsif options[ :length ] <= 7
+				h1l = options[ :length ]
+				h2l = 0
+			end
+
+			# Calculate runtime per hash and sum
+			h1t = s ** h1l
+			h2t = s ** h2l
+			ht = h1t + h2t
+
+			rows << [ '', hash, runtime( ht / attempts / 2 ) ]
+		else
+			rows << [ '', hash, runtime( options[ :charsets ][ :options ] / attempts / 2 ) ]
+		end
 	end
 end
 
