@@ -22,5 +22,5 @@ The 'Large corporation' and 'Nation state' are extrapolated from this rig with a
 The LM hash type is a strange hash in many ways. The hashing algorith splits the password up in two chucks of 7 characters and hashes those. This means that we only ever have to brute force passwords of 7 characters long, albeit that we sometimes have to brute force two of them. This also means that LM hashed passwords are always truncated at 14 charaters.
 In addition, the hashing algorithm makes the password entirely uppercase before hashing, which means we can usually recuce our character set for brute forcing by 26 characters.
 
-**note one scrypt hashes**
-Scrypt is not included in this estimation, mainly since there is a strong demand for memory rather than processing power for this algorithm. This is why the performnce benchmarks for scrypt do not scale with compute power as linearly as most algorithms.
+**note on scrypt hashes**
+Scrypt has a strong demand for memory in addition to processing power for its algorithm. This is why the performnce benchmarks for scrypt do not scale with compute power as linearly as most algorithms. The memory available on the GPU running the benchmark also strongly influences the results.
