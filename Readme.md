@@ -54,5 +54,18 @@ john --syntax --file /foo/bar.john
 hashcat --syntax --file /foo/bar.hashact
 ```
 
+## Rainbow table cracking
+### What are rainbow tables
+TODO: General info about how rainbow tables work and time/memory tradeoffs
+
+### Limits of rainbow tables
+TODO: Info about salted hashes, large charsets and long passwords.
+
+### Rainbowcrack
+TODO: Info about the rainbowcrack tool, file formats and syntax.
+```
+rainbowcrack --table /foo/bar.rt --synax
+```
+
 ## Online cracking
 TODO
