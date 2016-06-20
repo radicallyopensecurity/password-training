@@ -24,7 +24,7 @@ In addition, the hashing algorithm makes the password entirely uppercase before 
 
 **note on scrypt hashes**
 Scrypt has a strong demand for memory in addition to processing power for its algorithm. This is why the performnce benchmarks for scrypt do not scale with compute power as linearly as most algorithms. The memory available on the GPU running the benchmark also strongly influences the results.
-
+---
 
 ## Offline hash cracking
 This demo uses John the Ripper and oclHashCat to do brute force attacks on diffent types of password hashes. John the Ripper uses a regular CPU to carry out the brute force attack where oclHashCat utilizes any available GPUs as well. (John the Ripper can also be built with GPU support, but by default it is not.)
@@ -53,6 +53,7 @@ john --syntax --file /foo/bar.john
 ```
 hashcat --syntax --file /foo/bar.hashact
 ```
+---
 
 ## Rainbow table cracking
 ### What are rainbow tables
@@ -66,6 +67,7 @@ TODO: Info about the rainbowcrack tool, file formats and syntax.
 ```
 rainbowcrack --table /foo/bar.rt --synax
 ```
+---
 
 ## Online cracking
 TODO
