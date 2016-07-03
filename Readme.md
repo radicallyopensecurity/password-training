@@ -79,8 +79,8 @@ The default john comes with a 'stripped down' feature set which includes the thi
 [Possible further content: session management, rules and mutators]
 
 
-### Cracking hashes with oclHashcat
-Hashcat and oclHashcat are two versions of the same program. The main difference is that oclHashcat is built with CUDA/OpenCL support and hashcat is not. For brevity we will refer to both of these as 'hashcat' in this section. 
+### Cracking hashes with Hashcat
+Before the release of Hashcat version 3 there were two versions of Hashcat; Hashcat and oclHashcat. The main difference was that oclHashcat was built with CUDA/OpenCL support and hashcat was not. Since Hashcat v3 this distinction no longer exists and the only Hashcat build available has full support for all algorithms and OpenCL runtimes, including support for some more exotic OpenCL capable accelerators other than GPUs, such as Co-processors and FPGAs.
 
 Hashcat does not support the augmented hash file format. The hashes file must be a single hash on a line by itself. You must usually tell hashcat what type of hash you are cracking by using the **-m** option, otherwise **-m 0** is assumed. You must tell hashcat what type of attack you want to do by specifying the **-a** option. If omitted hashcat assumes you want to do a dictionary attack. Calling hashcat with the --help option will list all available hash types and attack modes.
 
