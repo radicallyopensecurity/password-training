@@ -1,10 +1,6 @@
 # Password cracking demo/notes
 
-
-
-
 ---
-
 
 ## Rainbow table cracking
 ### What are rainbow tables
