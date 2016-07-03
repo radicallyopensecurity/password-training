@@ -1,3 +1,11 @@
+# Set up build environment
+## Clone Docker image repo and sub repos
+```
+git clone ssh://git@gitlabs.radicallyopensecurity.com:7722/ros-demos/docker-image.git
+cd docker-image
+git clone ssh://git@gitlabs.radicallyopensecurity.com:7722/ros-demos/password-cracking.git
+```
+
 # Build docker image
 ```
 docker build -t ros-demos/kali-linux-docker .
