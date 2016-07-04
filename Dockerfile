@@ -1,10 +1,13 @@
 FROM kalilinux/kali-linux-docker
-RUN apt-get update && apt-get -y install \
-  john \
+RUN apt-get update && apt-get install \
+  bundler \
   hashcat \
-  oclhashcat \
   hashcat-utils \
-  bundler
+  hydra \
+  john \
+  oclhashcat \
+  vim \
+  -y
 
 COPY password-cracking /root/password-cracking
 RUN cd /root/password-cracking/estimator && bundle install
