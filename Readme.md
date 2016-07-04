@@ -16,6 +16,16 @@ docker build -t ros-demos/kali-linux-docker .
 docker run -t -i ros-demos/kali-linux-docker /bin/bash
 ```
 
+# Exporting
+Something about
+```
+docker export
+```
+and
+```
+docker import
+```
+
 # Extras
 ## Installing rockyou.txt wordlist
 ```
