@@ -37,7 +37,7 @@ username:$1$uOM6WNc4$r3ZGeSB11q6UUSILqek3J1
 `- Accounts' corresponding username (optional)
 ```
 
-In the "offline" directory you can find files "hashes_john_1.txt" and "hashes_john_2.txt", containing an augmented format salted md5 and sha-512 hash, respectively. Both should result in the plaintext password "hash234"
+In the "offline" directory you can find files "hashes_john_1.txt" and "hashes_john_2.txt", containing an augmented format salted md5 and sha-512 hash, respectively. Both should result in the plaintext password "hash234". Additionally there is a Windows LM and NTLM hash available for the same password.
 
 ### Speeding up cracking
 
