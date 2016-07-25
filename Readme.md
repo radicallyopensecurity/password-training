@@ -27,7 +27,7 @@ docker import
 ```
 
 # Extras
-## Installing rockyou.txt wordlist
+## Installing rockyou.txt wordlist (will probably include this by default since the download is only about 50M)
 ```
 apt-get install wordlists
 gzip -d /usr/share/wordlists/rockyou.txt.gz
