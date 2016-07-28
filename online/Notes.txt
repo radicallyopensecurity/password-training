@@ -1,5 +1,0 @@
-ncrack
-thc-hydra
-
-4h write online brute force target pages
-1h hydra + syntax
