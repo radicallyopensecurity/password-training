@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install \
   john \
   oclhashcat \
   php \
+  rainbowcrack \
   vim \
   -y
 
