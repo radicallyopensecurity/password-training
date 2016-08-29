@@ -50,12 +50,15 @@ There are a few very simple ways we can optimize john to crack passwords faster 
 The default john comes with a 'stripped down' feature set which includes the things most commonly used, however there is a john-jumbo package which contains extra options which can help with large cracking jobs. For example the ability to spread a cracking job across a large scale computer cluster using the OpenMPI framework and the ability to utilize GPU accelerators. John-jumbo also supports many additional hash types.
 
 ### Note about .pot files
-John stores hash cracking progress in a .pot file. By default this file is located here `~/.john/john.pot`. If you wish to re-crack a hash you must remove this file. If you wish to show the current status for cracked hashes, call john with the --show option and the hash file.
+John stores hash cracking progress in a .pot file. By default this file is located here `~/.john/john.pot`. If you wish to re-crack a hash you must remove this file or specify an alternate potfile using the **--pot=POTFILE** option. If you wish to show the current status for cracked hashes, call john with the --show option and the hash file.
 ```
 john --show myhashfile.txt
 ```
 
-[Possible further content: session management, rules and mutators]
+### Sessions
+If you want your cracking session to be saved, you can use the **--session=NAME** option. John will store it's current status and progress in the file you specify there. When your cracking session is interrupted you can pick up where you left of at a later time using the **--restore=NAME** option.
+
+[Possible further content: rules and mutators]
 
 
 ## Cracking hashes with Hashcat
@@ -75,7 +78,17 @@ Example of a brute force command where we look for passwords 1-8 characters long
 hashcat -m 500 -a 3 hashes.txt ?l?l?l?l?d?d?d?d --increment
 ```
 
-[Possible further content: session management and rules]
+### Note about .pot files
+Hashcat also makes use of a .pot file to store previously cracked passwords. It is located here `~/.hashcat/hashcat.pot`. If you want to crack a hash again, you will need to remove it from the pot file, disable potfiles using the **--potfile-disable** option or specify an alternate potfile with the **--potfile-path** option. To display cracked hashes from the .pot file you need to use the **--show** option in hashcat. Note that you need to specify the hash type in order for the lookup to succeed.
+Example;
+```
+hashcat -m 3000 --show My_LM_hash.txt
+```
+
+### Sessions
+Hashcat also supports saving your current cracking state in a session. When you start hashcat with the **--session=name** parameter specified, you can resume your session at a later time by calling hashcat again with the **--resume** parameter.
+
+[Possible further content: rules]
 
 
 ## When to use John and when to use Hashcat?
