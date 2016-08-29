@@ -26,10 +26,5 @@ and
 docker import
 ```
 
-# Extras
-## Installing rockyou.txt wordlist
-```
-apt-get install wordlists
-gzip -d /usr/share/wordlists/rockyou.txt.gz
-```
-The rockyou wordlist is now available for use by any cracking application under /usr/share/wordlists/rockyou.txt
+# Wordlists
+The rockyou.txt and a dutch wordlist are included by default and can be found under /usr/share/wordlists/ in the docker container.
