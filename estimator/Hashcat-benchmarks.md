@@ -77,6 +77,9 @@ This table shows the results for the hashtypes we use in the estimator. The full
 | bcrypt |     2593 H/s |
 
 
+# Note on bcrypt GPU performance
+In the results you can see that bcrypt is significantly slower in the GPU as opposed to the CPU benchmarks. This is due to inherent details in the bcrypt algorithm, which requires feedback from earlier parts of computations. This makes it much harder to implement on a GPU and makes the access times to memory a far more significant factor in the overall performance. Practically this means that for bcrypt you need much more GPU processing power to get a performance gain over a CPU.
+
 # Note on version numbers
 Since version numbers are subject to change over time, the following list can be used to seek out updated versions.
 
