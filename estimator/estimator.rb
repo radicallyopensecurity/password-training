@@ -33,10 +33,12 @@ options[ :online ] = {
 
 options[ :offline ] = {
 	'Threat actor' => {
-		'Casual attacker'   => { MD5: 10443100000,     SHA1: 3349800000,     SHA256: 1321800000,     LM: 1343700000,      NTLM: 21427800000,     bcrypt: 8984,      scrypt:191900 },
-		'Funded attacker'   => { MD5: 200300000000,    SHA1: 68771000000,    SHA256: 23012100000,    LM: 148400000000,    NTLM: 334000000000,    bcrypt: 105700,    scrypt:3493600 },
-		'Large corporation' => { MD5: 2003000000000,   SHA1: 687710000000,   SHA256: 230121000000,   LM: 1484000000000,   NTLM: 3340000000000,   bcrypt: 1057000,   scrypt:34936000 },
-		'Nation state'      => { MD5: 200300000000000, SHA1: 68771000000000, SHA256: 23012100000000, LM: 148400000000000, NTLM: 334000000000000, bcrypt: 105700000, scrypt:3493600000 }
+		"EC2 c4.2xlarge\nIntel Xeon E5-2660V3"   => { MD5: 449900000,       SHA1: 248200000,      SHA256: 93109500,       LM: 94441300,        NTLM: 764500000,       bcrypt: 2593,      scrypt: 24344 },
+		"EC2 g2.2xlarge\nNvdia GRID K520"        => { MD5: 2317500000,      SHA1: 617600000,      SHA256: 292200000,      LM: 304400000,       NTLM: 3496300000,      bcrypt: 536,       scrypt: 51541 },
+		"Casual attacker\nNvidia GTX970"         => { MD5: 10443100000,     SHA1: 3349800000,     SHA256: 1321800000,     LM: 1343700000,      NTLM: 21427800000,     bcrypt: 8984,      scrypt: 191900 },
+		"Funded attacker\nNvidia GTX1080"        => { MD5: 200300000000,    SHA1: 68771000000,    SHA256: 23012100000,    LM: 148400000000,    NTLM: 334000000000,    bcrypt: 105700,    scrypt: 3493600 },
+		"Large corporation\n10 x Nvidia GTX1080" => { MD5: 2003000000000,   SHA1: 687710000000,   SHA256: 230121000000,   LM: 1484000000000,   NTLM: 3340000000000,   bcrypt: 1057000,   scrypt: 34936000 },
+		"Nation state\n1000 x Nvidia GTX1080"    => { MD5: 200300000000000, SHA1: 68771000000000, SHA256: 23012100000000, LM: 148400000000000, NTLM: 334000000000000, bcrypt: 105700000, scrypt: 3493600000 }
 	}
 }
 
