@@ -49,6 +49,12 @@ There are a few very simple ways we can optimize john to crack passwords faster 
 
 The default john comes with a 'stripped down' feature set which includes the things most commonly used, however there is a john-jumbo package which contains extra options which can help with large cracking jobs. For example the ability to spread a cracking job across a large scale computer cluster using the OpenMPI framework and the ability to utilize GPU accelerators. John-jumbo also supports many additional hash types.
 
+### Note about .pot files
+John stores hash cracking progress in a .pot file. By default this file is located here `~/.john/john.pot`. If you wish to re-crack a hash you must remove this file. If you wish to show the current status for cracked hashes, call john with the --show option and the hash file.
+```
+john --show myhashfile.txt
+```
+
 [Possible further content: session management, rules and mutators]
 
 
