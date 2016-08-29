@@ -38,7 +38,7 @@ choose do |menu|
   end
   menu.choice :bcrypt do
     type = :bcrypt
-    hash = BCrypt::Password.create(password)
+    hash = BCrypt::Password.create(password, :cost => 5)
   end
   menu.choice :scrypt do
     type = :scrypt
