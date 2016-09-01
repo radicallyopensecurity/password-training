@@ -1,8 +1,8 @@
 Authentication and password cracking
 ====================================
 ## Agenda
-What do you need know about password
-* How and Where are they stored?
+What do you need know about password?
+* How and where are they stored?
 * How are they used?
 * How they can be attack?
 
@@ -56,24 +56,24 @@ What do you need know about password
 * Brute force attack
 * Rainbow table attack
 * Offline cracking
-* password sniffing (MITM) attack sslstrip/sslsniff^X
+* Password sniffing (MITM) attack sslstrip/sslsniff^X
 * Forget password (https://techcrunch.com/2009/07/19/the-anatomy-of-the-twitter-attack/)
 * Security Questions
 * Phishing
 * Social Engineering
 * Malware
-* Soulder surfing
+* Shoulder surfing
 * Guess
 * Spidering
 * In memory
-* In browser/application cache (Password Recovery/cracking, stored in applciation cache chrome,firefox etc.)
+* In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.)
 * Access of authentication database/server
 * Authentication through password hash
 * Pass the hash attack
 
 ## Tools
 * Cain and Abel
-* Jhon the Ripper
+* John the Ripper
 * THC Hydra
 * Aircrack-ng (Wifi)
 * L0phtcrack
@@ -84,9 +84,9 @@ What do you need know about password
 * SolarWinds
 * Brutus
 
-## Recommandation/Conclusion
-* Tradeoff between password complexity vs usability
-* Phasphrase vs longpassword
+## Recommendation/Conclusion
+* Tradeoff between password complexities vs. usability
+* Passphrase vs. long password
 
 ### Password Management tools
 * Dashlane4
