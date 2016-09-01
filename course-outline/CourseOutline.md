@@ -28,6 +28,7 @@ What do you need know about password
 * LDAP/Active Directory
 * /etc/shadow
 * Database
+* Configuration file of application server
 
 ## Brief (few slides) about various application and network based authentication schemes
 ### Application Authentication Protocols
@@ -65,7 +66,7 @@ What do you need know about password
 * Guess
 * Spidering
 * In memory
-* In browser/application cache (Password Recover/cracking stored in applciation cache chrome,firefox etc.) Required physical access
+* In browser/application cache (Password Recovery/cracking, stored in applciation cache chrome,firefox etc.)
 * Access of authentication database/server
 * Authentication through password hash
 * Pass the hash attack
