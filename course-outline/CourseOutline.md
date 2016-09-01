@@ -14,6 +14,9 @@ What do you need know about password
 ##### Hash
 * LM Hash
 * NT Hash
+* MD5
+* SHA1
+* SHA2
 
 ### Where they stored
 * In file
