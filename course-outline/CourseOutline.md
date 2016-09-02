@@ -64,7 +64,7 @@ Authentication and password cracking
 * Password sniffing (MITM) attack sslstrip/sslsniff (Depends on infrastructure)
 * In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.)
 
-### Hands-on (Depends on Available Infrastructure and if time permits)
+### Hands-on (Depends on available infrastructure and if time permits)
 * Authentication through password hash
 * Pass the hash attack
 * In memory
