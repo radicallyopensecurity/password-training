@@ -14,8 +14,7 @@ Authentication and password cracking
 #### Statics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
 #### Phasphrase vs complex password
 
-## Agenda
-What do you need know about password?
+## What do you need know about password?
 * How and where are they stored?
 * How are they used?
 * How they can be attack?
