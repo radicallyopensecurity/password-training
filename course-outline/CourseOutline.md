@@ -61,7 +61,7 @@ Authentication and password cracking
 * Brute force attack
 * Rainbow table attack
 * Offline cracking
-* Password sniffing (MITM) attack sslstrip/sslsniff (Depends on infrastructure)
+* Password sniffing (MITM) attack sslstrip/sslsniff (Depends on available infrastructure)
 * In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.)
 
 ### Hands-on (Depends on available infrastructure and if time permits)
