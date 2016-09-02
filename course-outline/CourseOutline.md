@@ -11,7 +11,7 @@ Authentication and password cracking
 * Give participants two scenario for password policies  and asked them which option is better
 * Provide brief about password policies
 
-#### Statics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
+#### statistics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
 #### Phasphrase vs complex password
 
 ## What do you need know about password?
