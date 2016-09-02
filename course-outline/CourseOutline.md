@@ -14,7 +14,7 @@ Authentication and password cracking
 #### statistics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
 #### Phasphrase vs complex password
 
-## What do you need know about password?
+#### What do you need know about password?
 * How and where are they stored?
 * How are they used?
 * How they can be attack?
@@ -54,8 +54,8 @@ Authentication and password cracking
 * FTP authentication
 * SSL over application protocols (HTTPS/SFTP/SMTPS)
 
-## How they can be attack?
-### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on (30 minutes talks and 30 minutes hands-on)
+## How they can be attack? (30 minutes talks and 30 minutes hands-on)
+### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on 
 * Dictionary attack
 * Brute force attack
 * Rainbow table attack
