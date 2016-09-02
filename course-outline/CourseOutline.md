@@ -62,9 +62,9 @@ Authentication and password cracking
 * Password sniffing (MITM) attack sslstrip/sslsniff (Depends on available infrastructure) ***(10 minutes hands-on)***
 * In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.) ***(5 minutes hands-on)***
 
-### Hands-on (Depends on available infrastructure and if time permits)
+### Hands-on (Depends on available infrastructure and if time permits) ***(10 minutes hands-on any one of the below)***
 * Authentication through password hash
-* Pass the hash attack ***(10 minutes hands-on)***
+* Pass the hash attack 
 * In memory
 
 ### Theoritical explaination
