@@ -1,6 +1,6 @@
 Authentication and password cracking
 ====================================
-## Introduction
+## Introduction (10 minutes)
 
 #### Authentication Types
 * Something you know (Password)
@@ -19,7 +19,7 @@ Authentication and password cracking
 * How are they used?
 * How they can be attack?
 
-## Brief (few slides) about various storage methods in Windows/Linux/application server
+## Brief (few slides) about various storage methods in Windows/Linux/application server (15 minutes)
 ### How they are stored
 * Plain text
 
@@ -47,14 +47,15 @@ Authentication and password cracking
 * Database
 * Configuration file of application server
 
-## Brief (few slides) about various application and network based authentication schemes
+## Brief (few slides) about various application and network based authentication schemes (5 minutes)
 ### Application Authentication Protocols
 * HTTP authentication
-* HTTP form based authentication
+* HTTP form based authenticationnd
 * FTP authentication
+* SSL over application protocols (HTTPS/SFTP/SMTPS)
 
 ## How they can be attack?
-### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on
+### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on (30 minutes talks and 30 minutes hands-on)
 * Dictionary attack
 * Brute force attack
 * Rainbow table attack
@@ -74,7 +75,7 @@ Authentication and password cracking
 * Authentication through password hash
 * Pass the hash attack
 
-## Tools
+## Tools (15 minutes, some of them participants will already use in hands-on session)
 * Cain and Abel
 * John the Ripper
 * THC Hydra
@@ -86,10 +87,13 @@ Authentication and password cracking
 * RainbowCrack
 * Brutus
 
-### Password Management tools
+## Password Management tools ( 5 minutes)
 * Dashlane4
 * LastPass Premimum
 * Sticky Password
 * KeePass
 
 ## Reference
+
+## Q&A (10 minutes) 
+
