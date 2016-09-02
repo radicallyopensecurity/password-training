@@ -72,7 +72,7 @@ Authentication and password cracking
 * Security Questions
 * Phishing
 * Social Engineering
-* Malware
+* Malware (Man in the browser)
 * Shoulder surfing
 * Guess
 * Spidering
