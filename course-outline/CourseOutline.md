@@ -55,12 +55,21 @@ Authentication and password cracking
 * SSL over application protocols (HTTPS/SFTP/SMTPS)
 
 # How they can be attack? (30 minutes talks and 30 minutes hands-on)
-### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on 
+#### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on
+###Hands-on
 * Dictionary attack
 * Brute force attack
 * Rainbow table attack
 * Offline cracking
-* Password sniffing (MITM) attack sslstrip/sslsniff^X
+* Password sniffing (MITM) attack sslstrip/sslsniff
+* In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.)
+
+### Hands-on (Depends on Available Infrastructure and if time permits)
+* Authentication through password hash
+* Pass the hash attack
+* In memory
+
+### Theoritical explaination
 * Forget password (https://techcrunch.com/2009/07/19/the-anatomy-of-the-twitter-attack/)
 * Security Questions
 * Phishing
@@ -69,11 +78,8 @@ Authentication and password cracking
 * Shoulder surfing
 * Guess
 * Spidering
-* In memory
-* In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.)
 * Access of authentication database/server
-* Authentication through password hash
-* Pass the hash attack
+* Password Hardcoded in thick client
 
 # Tools (15 minutes, some of them participants will already use in hands-on session)
 * Cain and Abel
