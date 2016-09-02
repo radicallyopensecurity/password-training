@@ -1,5 +1,19 @@
 Authentication and password cracking
 ====================================
+## Introduction
+
+### Password definition/types
+* Something you know
+** Password
+* Something you have
+** Badge, token, digital certificate
+* Something you are (biometric)
+** Fingerprint, retina
+
+### Password Policies (Give participants two scenario for password policies  and asked them which option is better)
+### Statics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
+### Phasphrase vs complex 
+
 ## Agenda
 What do you need know about password?
 * How and where are they stored?
@@ -18,6 +32,8 @@ What do you need know about password?
 * SHA1
 * SHA2
 
+#### Salt
+
 ### Where they stored
 * In file
 * In database
@@ -35,20 +51,6 @@ What do you need know about password?
 * HTTP authentication
 * HTTP form based authentication
 * FTP authentication
-* SMTP authentication
-* IMAP/POP3 authentication
-
-### Network Authentication Protocols
-* PAP
-* CHAP
-* MS-CHAP and MS-CHAPv2
-* EAP
-* NTLM
-* Kerberos
-* RADIUS
-* TACAS and TACAS+
-* Wifi (WEP, WPA, WPA2)
-* SNMP
 
 ## How they can be attack?
 ### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on
@@ -83,10 +85,6 @@ What do you need know about password?
 * RainbowCrack
 * SolarWinds
 * Brutus
-
-## Recommendation/Conclusion
-* Tradeoff between password complexities vs. usability
-* Passphrase vs. long password
 
 ### Password Management tools
 * Dashlane4
