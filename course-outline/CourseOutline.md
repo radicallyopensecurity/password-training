@@ -1,6 +1,6 @@
 Authentication and password cracking
 ====================================
-## Introduction (10 minutes)
+# Introduction (10 minutes)
 
 #### Authentication Types
 * Something you know (Password)
@@ -19,7 +19,7 @@ Authentication and password cracking
 * How are they used?
 * How they can be attack?
 
-## Brief (few slides) about various storage methods in Windows/Linux/application server (15 minutes)
+# Brief (few slides) about various storage methods in Windows/Linux/application server (15 minutes)
 ### How they are stored
 * Plain text
 
@@ -40,21 +40,21 @@ Authentication and password cracking
 * In database
 * In Memory
 
-## Password Storage
+### Password Storage
 * SAM Database
 * LDAP/Active Directory
 * /etc/shadow
 * Database
 * Configuration file of application server
 
-## Brief (few slides) about various application and network based authentication schemes (5 minutes)
+# Brief (few slides) about various application and network based authentication schemes (5 minutes)
 ### Application Authentication Protocols
 * HTTP authentication
 * HTTP form based authenticationnd
 * FTP authentication
 * SSL over application protocols (HTTPS/SFTP/SMTPS)
 
-## How they can be attack? (30 minutes talks and 30 minutes hands-on)
+# How they can be attack? (30 minutes talks and 30 minutes hands-on)
 ### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on 
 * Dictionary attack
 * Brute force attack
@@ -75,7 +75,7 @@ Authentication and password cracking
 * Authentication through password hash
 * Pass the hash attack
 
-## Tools (15 minutes, some of them participants will already use in hands-on session)
+# Tools (15 minutes, some of them participants will already use in hands-on session)
 * Cain and Abel
 * John the Ripper
 * THC Hydra
@@ -87,13 +87,13 @@ Authentication and password cracking
 * RainbowCrack
 * Brutus
 
-## Password Management tools ( 5 minutes)
+# Password Management tools ( 5 minutes)
 * Dashlane4
 * LastPass Premimum
 * Sticky Password
 * KeePass
 
-## Reference
+# Reference
 
-## Q&A (10 minutes) 
+# Q&A (10 minutes) 
 
