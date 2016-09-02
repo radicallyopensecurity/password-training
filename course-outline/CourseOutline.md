@@ -57,16 +57,14 @@ Authentication and password cracking
 # How they can be attack? (30 minutes talks and 30 minutes hands-on)
 #### Various methods of password cracking (online, offline) and process of cracking with Demo/hands-on
 ### Hands-on
-* Dictionary attack
-* Brute force attack
-* Rainbow table attack
-* Offline cracking
-* Password sniffing (MITM) attack sslstrip/sslsniff (Depends on available infrastructure)
-* In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.)
+* Dictionary / Brute force attack (5 minutes hands-on)
+* Rainbow table / Offline cracking attack (5 minutes hands-on)
+* Password sniffing (MITM) attack sslstrip/sslsniff (Depends on available infrastructure) (10 minutes hands-on)
+* In browser/application cache (Password Recovery/cracking, stored in application cache chrome, Firefox etc.) (5 minutes hands-on)
 
 ### Hands-on (Depends on available infrastructure and if time permits)
 * Authentication through password hash
-* Pass the hash attack
+* Pass the hash attack ( 10 minutes hands-on)
 * In memory
 
 ### Theoritical explaination
