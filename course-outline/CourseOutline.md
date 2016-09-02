@@ -68,16 +68,16 @@ Authentication and password cracking
 * In memory
 
 ### Theoritical explaination
-* Forget password (https://techcrunch.com/2009/07/19/the-anatomy-of-the-twitter-attack/)
-* Security Questions
-* Phishing
-* Social Engineering
-* Malware (Man in the browser)
-* Shoulder surfing
-* Guess
-* Spidering
-* Access of authentication database/server
-* Password Hardcoded in thick client
+* Forget password (https://techcrunch.com/2009/07/19/the-anatomy-of-the-twitter-attack/) ***(5 minutes)***
+* Security Questions ***(2 minutes)***
+* Phishing ***(2 minutes)***
+* Social Engineering ***(2 minutes)***
+* Malware (Man in the browser) ***(2 minutes)***
+* Shoulder surfing ***(1 minute)***
+* Guess ***(1 minute)***
+* Spidering ***(2 minutes)***
+* Access of authentication database/server ***(1 minute)***
+* Password Hardcoded in thick client ***(2 minutes)***
 
 # Tools (15 minutes, some of them participants will already use in hands-on session)
 * Cain and Abel
