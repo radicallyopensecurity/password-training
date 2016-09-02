@@ -12,7 +12,7 @@ Authentication and password cracking
 * Provide brief about password policies
 
 #### Statics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
-#### Phasphrase vs complex 
+#### Phasphrase vs complex password
 
 ## Agenda
 What do you need know about password?
