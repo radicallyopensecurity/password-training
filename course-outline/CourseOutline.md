@@ -22,7 +22,9 @@ Authentication and password cracking
 ## Brief (few slides) about various storage methods in Windows/Linux/application server
 ### How they are stored
 * Plain text
-* Encrypted
+
+#### Encrypted
+* Different methods of encryptions
 
 ##### Hash
 * LM Hash
