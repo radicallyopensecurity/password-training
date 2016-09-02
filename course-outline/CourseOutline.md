@@ -2,17 +2,17 @@ Authentication and password cracking
 ====================================
 ## Introduction
 
-### Authentication Types
+#### Authentication Types
 * Something you know (Password)
 * Something you have (Badge, token, digital certificate)
 * Something you are (biometric, Fingerprint, retina)
 
-### Password Policies 
+#### Password Policies 
 * Give participants two scenario for password policies  and asked them which option is better
 * Provide brief about password policies
 
-### Statics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
-### Phasphrase vs complex 
+#### Statics about how long it will take password to crack depends on character size (Trade-off between password complexity vs usability
+#### Phasphrase vs complex 
 
 ## Agenda
 What do you need know about password?
