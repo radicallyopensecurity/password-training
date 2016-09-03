@@ -1,6 +1,0 @@
-johntheripper
-oclhashcat
-
-LM & NTLM hashes
- |-> CPU crack with john
- `-> Gpu crack with hashcat if available.
