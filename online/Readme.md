@@ -31,7 +31,7 @@ hydra -l "admin" -P /usr/share/wordlists/rockyou.txt localhost http-form-post "/
 # Run apache in docker so it can be accessed from the host OS
 You may wish to try some external tools or look at pages in your browser, to do so you can run apache in the docker container and bind it to port 8000 on localhost;
 
-docker run -d -p 8000:80 ros-demos/kali-linux-docker /usr/sbin/apache2ctl -D FOREGROUND
+docker run -d -p 80:80 ros-demos/kali-linux-docker /usr/sbin/apache2ctl -D FOREGROUND
 
-You should be able to access the sites on http://localhost:8000/ now.
-(Use 'docker ps' and 'docker stop' to shut down the apache server after you are done.)
+You should be able to access the sites on http://localhost/form/ and http://localhost/basic/ now.
+Use `docker ps` and `docker stop CONTAINER_ID` to shut down the apache server after you are done.
