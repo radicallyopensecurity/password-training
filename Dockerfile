@@ -21,3 +21,7 @@ RUN cd /root/password-cracking/estimator && bundle install
 RUN cd /root/password-cracking/generator && bundle install
 RUN cp -R /root/password-cracking/online/web/* /var/www/html/ && chown -R www-data:www-data /var/www/html/
 RUN cp /root/password-cracking/online/vhost.conf /etc/apache2/sites-enabled/000-default.conf
+RUN mkdir /usr/share/rainbowtables
+ADD https://www.radicallyopensecurity.com/rainbow/lm_alpha-numeric.xz /usr/share/rainbowtables/
+RUN unxz /usr/share/rainbowtables/lm_alpha-numeric.xz
+RUN mv /usr/share/rainbowtables/lm_alpha-numeric /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt
