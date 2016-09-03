@@ -13,6 +13,7 @@ This test simulates looking for a password for a specific user. Other forms of b
 
 ## Offline cracking
 The offline hash cracking figures are based off hashcat benchmarks we ran ourselves and those available on https://gist.github.com/epixoip. For details on our own benchmarks and how to reproduce them, see the Hashcat-benshmarks.md file.
+The First two threat actor levels are based of an attacker running cracking software on Amazon EC2 instances.
 The 'Casual attacker' level is assumed to have an nvidia GTX 970 at their disposal, the 'Funded attacker' is based on a purpose built rig containing eight nvidia GTX 1080 cards.
 The 'Large corporation' and 'Nation state' are extrapolated from this rig with a factor of 10 and 1000, respectively.
 
