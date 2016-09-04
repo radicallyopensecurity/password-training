@@ -5,9 +5,9 @@ It is not recommended to use the deploy script on web servers that are also mean
 ## Pre-deployment
 You will need to set up a Debian or Ununtu based server where you want to run the demo login pages. Other operating systems are note handled by the deploy script, but the pages can be deployed manually on any web server with PHP support.
 
-If Apache and PHP are not already installed, do so now. Note that in some cases the php package is named "php5" rather than "php".
+If Apache and PHP are not already installed, do so now.
 ```
-apt-get install apache2 php -y
+apt-get install apache2 php5 -y
 ```
 Start apache if not started already.
 ```

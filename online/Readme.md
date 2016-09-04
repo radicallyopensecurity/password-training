@@ -35,3 +35,6 @@ docker run -d -p 80:80 ros-demos/kali-linux-docker /usr/sbin/apache2ctl -D FOREG
 
 You should be able to access the sites on http://localhost/form/ and http://localhost/basic/ now.
 Use `docker ps` and `docker stop CONTAINER_ID` to shut down the apache server after you are done.
+
+# Run the demo login pages on another host
+See the webdeploy/Readme.md file for more information on how to deploy the demo login pages on other hosts.

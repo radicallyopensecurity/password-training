@@ -25,9 +25,9 @@ puts ''
 # Set parameters to determine cracking speed (Attempts/s)
 options[ :online ] = {
 	'Speeds' => {
-		'100 mbit' => 14000,
-		'1 gbit'   => 140000,
-		'10 gbit'  => 1400000
+		'100 mbit' => 7989,
+		'1 gbit'   => 79890,
+		'10 gbit'  => 798900
 	}
 }
 
