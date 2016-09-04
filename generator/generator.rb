@@ -3,7 +3,6 @@ require 'base64'
 require 'digest'
 require 'bcrypt'
 require 'highline/import'
-require 'scrypt'
 require 'smbhash'
 
 # Get password to generate hash for
@@ -46,7 +45,11 @@ choose do |menu|
   end
   menu.choice :scrypt do
     type = :scrypt
-    hash = SCrypt::Password.create(password)
+    hash = `perl -e "use Crypt::ScryptKDF; print Crypt::ScryptKDF::scrypt_hash('#{password}', 16384, 1, 1, 32);" 2> /dev/null`
+  end
+  menu.choice :scrypt_reduced do
+    type = :scrypt
+    hash = `perl -e "use Crypt::ScryptKDF; print Crypt::ScryptKDF::scrypt_hash('#{password}', 4096, 1, 1, 32);" 2> /dev/null`
   end
 
   menu.default = :md5
@@ -91,8 +94,6 @@ elsif method == :bruteforce
     :upp   => false,
     :num   => false,
     :spc   => false,
-    :human => '',
-    :size  => 0
   }
 
   password.each_codepoint do |c|
@@ -111,7 +112,11 @@ elsif method == :bruteforce
     end
   end
   if charsets[:spc]
-    charset = :ASCII
+    if type == :lm
+      charset = :LM_ASCII
+    else
+      charset = :ASCII
+    end
   elsif charsets[:num] && charsets[:upp] && charsets[:low]
     charset = :alnum
   elsif charsets[:num] && charsets[:upp]
@@ -145,13 +150,10 @@ if tool == :john
   elsif type == :bcrypt
     cmd << 'bcrypt'
   elsif type == :scrypt
-    say("<%= color('Cannot currently generate valid scrypt hashes!', RED) %>")
     cmd << 'scrypt'
 
     # A standard format for scrypt hashes would be nice
-    temp = hash.split('$')
-    temp[3] = Base64.encode64([temp[3]].pack('H*')).strip
-    temp[4] = Base64.encode64([temp[4]].pack('H*')).strip
+    temp = hash.split(':').drop(1)
     hash = "$ScryptKDF.pm$#{temp.join('*')}"
   end
 
@@ -178,15 +180,8 @@ elsif tool == :hashcat
     say("<%= color('This cracking process is very resource intensive! Consider yourself warned.', YELLOW) %>")
     cmd << '3200'
   elsif type == :scrypt
-    say("<%= color('Cannot currently generate valid scrypt hashes!', RED) %>")
-    #say("<%= color('This cracking process is very resource intensive! Consider yourself warned.', YELLOW) %>")
+    say("<%= color('This cracking process is very resource intensive! Consider yourself warned.', YELLOW) %>")
     cmd << '8900'
-
-    # Make hash format hashcat understands
-    temp = hash.split('$')
-    temp[3] = Base64.encode64([temp[3]].pack('H*')).strip
-    temp[4] = Base64.encode64([temp[4]].pack('H*')).strip
-    hash = "SCRYPT:#{temp.join(':')}"
   end
 
   cmd << " hash_#{tool}_#{type}_#{method}.txt"
