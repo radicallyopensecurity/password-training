@@ -13,4 +13,4 @@ The script will prompt you for any information it requires, such as hash types a
 In order to make the password cracking a little more manageable for bcrypt hashes there is a bcrypt_reduced option available in the algorithms. The default work factor has been brought down from 10 to 5. This reduces the memory requirement and processing time required for bcrypt hashes. Though the default work factor for bcrypt hashes is usually 10, allowing you to generate hashes with a work factor of 5 makes it possible to experiment with bcrypt hashes on some lower end hardware too.
 
 ## Notes on scrypt
-Scrypt hash generation is mostly broken right now. For hashcat it might work, I'm not entirely sure. For john it's definitely broken. 
+For scrypt hashes there is a similar construction in place where you are allowed to generate a reduced complexity hash in order to allow for faster testing and experimentation. This is the scrypt_reduced option in the generator script.

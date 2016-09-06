@@ -15,5 +15,10 @@ For this demo a small rainbow table has been generated for windows LM hashes. It
 ### Rainbowcrack command syntax
 You may specify one or more rainbow table files to use in the cracking process, followed by the -h option to specify a hash directly or the -l option to specify a list of hashes contained in a file. The -f and -n options are available for pwdump files but we will not be using those here.
 ```
-rcrack /foo/bar.rt -h "hashhashhashhash"
+rcrack /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt -l /root/password-cracking/rainbow/hashes_lm.txt
 ```
+### Note on cracking LM hashes
+Rcrack expects you to manually separate the two hashes that make up a full ML hash. In the "hashes_lm.txt" file included with this demo that has already been done for you so you can pass it directly to rcrack as is.
+
+## Note on the included rainbow table
+We utilizes a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.
