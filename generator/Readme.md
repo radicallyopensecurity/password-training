@@ -1,8 +1,9 @@
 # Hash generator
-You can use this tool to generate password hashes of different types and the john or hashcat commands you need to crack them. Before trying to crack a generated hash it may be a good idea to use the "estimator.rb" too to check if your hash is likely to be cracked in any reasonable amount of time.
+You can use this tool to generate password hashes of different types and the john or hashcat commands you need to crack them. Before trying to crack a generated hash it may be a good idea to use the "estimator.rb" script too to check if your hash is likely to be cracked in any reasonable amount of time.
 
 ## Usage
-Run the ruby script with no special parameters:
+The generator script may be found in the `/root/password-cracking/generator/` directory inside your docker container.
+Running the script requires no special parameters:
 ```
 ruby generator.rb
 ```

@@ -174,6 +174,7 @@ elsif tool == :hashcat
     cmd << '1400'
   elsif type == :lm
     cmd << '3000'
+    hash = hash.insert(16, "\n")
   elsif type == :ntlm
     cmd << '1000'
   elsif type == :bcrypt

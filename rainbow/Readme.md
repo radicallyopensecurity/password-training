@@ -19,6 +19,7 @@ rcrack /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt -l /ro
 ```
 ### Note on cracking LM hashes
 Rcrack expects you to manually separate the two hashes that make up a full ML hash. In the "hashes_lm.txt" file included with this demo that has already been done for you so you can pass it directly to rcrack as is.
+If you are using the **generator.rb** script to generate your LM hash to crack with a rcrack, use **hashcat** as your choice of tool since the output file for hashcat also splits the hash in two. This means that LM hashes generated for hashcat can also be fed directly to rcrack without having to manually split the hash in two.
 
 ## Note on the included rainbow table
 We utilizes a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.

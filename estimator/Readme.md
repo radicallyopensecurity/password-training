@@ -1,5 +1,9 @@
 # Password cracking estimator
-This script provides an estimate of how long it will take to crack a given password. For online attacks it is assumed the network up-link will be the bottleneck. For offline cracking it assumes the available processing power is limiting factor.
+This script provides an estimate of how long it will take to crack a given password. For online attacks it is assumed the network up-link will be the bottleneck. For offline cracking it assumes the available processing power is limiting factor. Running the script can be done by issuing the following commands inside the docker container;
+```
+cd /root/password-cracking/estimator/
+ruby estimator.rb
+```
 
 ## Online cracking
 The online password cracking speed is based on a benchmark performed by running Hydra against an Apache http server performing HTTP basic auth. The test was performed on Amazon EC2 with a c3.xlarge instance type as the attacker and a c3.4xlarge instance as the web server. The Apache web server was configured with 500 worker threads to ensure bandwidth would be the constraining factor. We increased the number of workers on Hydra until we reached a network throughput of 100 mbit, measured at the server side. At this time Hydra was able to perform close to half a million authentication attempts per minute. The gigabit and 10 gigabit speeds have been extrapolated from this figure. Take note that this is an almost ideal situation with both machines having sufficient bandwidth and system resources to handle this volume of authentication attempts and that the attacker and target have a very low latency connection as they were hosted in the same Amazon EC2 availability zone. In less ideal conditions an attack may be significantly slower.
