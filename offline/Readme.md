@@ -64,7 +64,7 @@ If you want your cracking session to be saved, you can use the **--session=NAME*
 # Hashcat
 Before the release of Hashcat version 3 there were two versions of Hashcat; Hashcat and oclHashcat. The main difference was that oclHashcat was built with CUDA/OpenCL support and hashcat was not. Since Hashcat v3 this distinction no longer exists and the only Hashcat build available has full support for all algorithms and OpenCL runtimes, including support for some more exotic OpenCL capable accelerators other than GPUs, such as Co-processors and FPGAs. 
 
-Take note that since hashcat version 3.00, you **MUST** have an OpenCL runtime and OpenCL compatible device. If you do not have such a device you cannot run hashcat at all. If you do have an OpenCL capable device and you want to run hashcat inside your docker container you must expose it to your docker container using the `--device /dev/device` parameter when starting your it. The exact device name and parameters depend on the make and model of your OpenCL capable device as well as the operating system and driver you are using. You will have to install the OpenCL runtime libraries for your OpenCL inside your docker container too.
+Take note that since hashcat version 3.00, you **MUST** have an OpenCL runtime and OpenCL compatible device. If you do not have such a device you cannot run hashcat at all. If you do have an OpenCL capable device and you want to run hashcat inside your docker container you must expose it to your docker container using the `--device /dev/device` parameter when starting it. The exact device name and parameters depend on the make and model of your OpenCL capable device as well as the operating system and driver you are using. You will have to install the OpenCL runtime libraries for your OpenCL device inside your docker container too.
 
 ## Cracking hashes with Hashcat
 Hashcat does not support the augmented hash file format. The hashes file must be a single hash on a line by itself. You must usually tell hashcat what type of hash you are cracking by using the **-m** option, otherwise **-m 0** is assumed. You must tell hashcat what type of attack you want to do by specifying the **-a** option. If omitted hashcat assumes you want to do a dictionary attack. Calling hashcat with the --help option will list all available hash types and attack modes.
@@ -83,6 +83,7 @@ hashcat -m 500 -a 3 hashes_hashcat_1.txt ?l?l?l?l?d?d?d?d --increment
 
 ### Note about .pot files
 Hashcat also makes use of a .pot file to store previously cracked passwords. It is located here `~/.hashcat/hashcat.pot`. If you want to crack a hash again, you will need to remove it from the pot file, disable potfiles using the **--potfile-disable** option or specify an alternate potfile with the **--potfile-path** option. To display cracked hashes from the .pot file you need to use the **--show** option in hashcat. Note that you need to specify the hash type in order for the lookup to succeed.
+
 Examples;
 ```
 hashcat -m 500 --show hashes_hashcat_1.txt
@@ -93,6 +94,6 @@ hashcat -m 3000 --show hashes_lm.txt
 Hashcat also supports saving your current cracking state in a session. When you start hashcat with the **--session=name** parameter specified, you can resume your session at a later time by calling hashcat again with the **--resume** parameter.
 
 
-## When to use John and when to use Hashcat?
+# When to use John and when to use Hashcat?
 This usually depends on the infrastructure you have available to perform password cracking on and the type of attack you want to perform. Hashcat is highly optimized for fast hashing and will usually generate more hashes per second than john, but it lacks much of the customization options in brute force generators and mutators and doesn't have the level of session management that john does. For running a distributed cracking job, john is a little more mature at this time, of course this may change in the future. Both hashcat and john are capable of supporting GPU accelerators, but hashcat has had a lot of time and effort put into optimization of the algorithms, which is part of the reason why hashcat lays claim to the title of "Worlds fastest password cracker".
 In short, if you have a single machine to run your cracking task and you are using a wordlist or a simple brute force generator, hashcat is likely the faster option, especially if you have a CUDA or OpenCL capable GPU. For more complex rules or larger distributed systems, john is probably the better option.
