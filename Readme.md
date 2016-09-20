@@ -5,6 +5,10 @@ git clone ssh://git@gitlabs.radicallyopensecurity.com:7722/ros-demos/docker-imag
 cd docker-image
 git clone ssh://git@gitlabs.radicallyopensecurity.com:7722/ros-demos/password-cracking.git
 ```
+# Add user to docker group
+```
+sudo usermod -aG docker $(whoami)
+```
 
 # Build docker image
 ```
