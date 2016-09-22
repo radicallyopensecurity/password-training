@@ -4,7 +4,7 @@ For the purposes of this demo we will be using the WiFi Pineapple mark 5. For th
 ## Setup details
 The WiFi pineapple can be set up in many different networking configurations. For the purposes of this demo we will be using the WiFi pineapple's own ehternet port as our management interface and bridge our laptops WiFi network to provide internet connectivity to the pineapple itself.
 
-[Insert pretty graphic of network setup here]
+![](Images/network.png)
 
 ## Getting connected to the WiFi pineapple
 The first thing that must be done after powering on the WiFi pineapple is to set up our management network so we can access and control it. This is accomplished by plugging an ethernet cable into the WiFi pineapple and into our own computer. The pineapple will work as our DHCP server and assign us an IP address. When powering on the WiFi pineapple it must first boot so it will take a minute or so before you are assigned an IP address via DHCP.
@@ -28,7 +28,7 @@ Normally this means our WiFi pineapple's own IP address is the router address in
 Now we can try to connect to the WiFi pineapple web interface by using the IP address we've determined earlier. The interface will be on port **1471** so the address will be `http://172.16.42.1:1471/`.
 If you are using a brand new pineapple it will guide you through a short setup process, otherwise you can log in using **root** as the username and the password you had previously set up during the initial setup process. If you are not able to log in or don't know the password you can try a factory reset. (See the troubleshooting section at the bottom of this document.)
 
-[Insert screenshot of the default pineapple interface]
+![](Images/Screenshot_webif.png)
 
 ## Setting up network connection sharing
 In order to allow your WiFi pineapple to connect to the internet we will need to share the internet connection from our laptop to the WiFi pineapple. The instructions differ based on the operating system you are running on your laptop. Please skip ahead to the section for your specific OS.
@@ -58,12 +58,12 @@ The WiFi pineapple functionality can be extended by what are known as **Pineappl
 
 Head over to the **Pineapple Bar** section in the webinterface by clicking on the title of the box. This should bring up a new window showing a tab of already installed infusions. Click the tab marked **Pineapple Bar: Available** and then **show** on the **User infusions** to get a list of infusions we can install.
 
-[Insert screenshot of installer page]
+![](Images/Screenshot_pineapplebar.png)
 
 As an example we will now install the **opkgmanager** infusion. Simply click the **install** link next to the infusion and choose if you want to install it to the WiFi pineapples internal storage or to the SD card. Usually we will have much more space available on the SD card so we will install there. If you have not SD card in your WiFi pineapple or your SD card is full you can also install to internal storage.
 Once the installation has finished it should show you a notification in the web interface.
 
-[Insert screenshot of notification]
+![](Images/Screenshot_notificationinstalled.png)
 
 Now when we go back to our main screen in the web interface we can see a new block named **OPKG Manager** has been added and when we click on the title we can see this infusion allows us to install and update packages on the WiFi pineapple.
 
@@ -81,6 +81,8 @@ A WiFi access point with nobody connected isn't very interesting so it is time t
 
 Head over to the **Network** block in the web interface and click the **Access point** tab. Here we will see a section called **Open Access Point**, this will be the access point name we use for our clients. If you are planning to trick people into connecting to your access point by mistake you can set an SSID name like "KPN hotspot", "T-Mobile hotspot" or maybe the name of a company WiFi network you are near to. Make sure to uncheck the **hidden** box and hit **save**. It will prompt you to restart your WiFi in order to continue. At this point you should see the network pop up when you are looking for WiFi networks on a nearby device.
 
+![](Images/Screenshot_hotspotnaming.png)
+![](Images/Screenshot_hotspotphone.png)
 [Insert screenshots of AP settings and the name in the AP list]
 
 At this point clients can start connecting to your WiFi access point and you will be able to start further attacks.
@@ -99,7 +101,7 @@ We will be doing a very basic "catch all" attack for the access point spoofing. 
 In your web interface you will have a **PineAP** block where we will be checking all the boxes except for the **Autostart** one. When we're doing a more targeted attack we would leave some of these off.
 We're now spoofing access points! To see some more status details you can open up the **PineAP** block to see the clients that have associated with our access point as well as what IP address we've assigned them, the network name the connected to and usually the host name for their system. To see the access points that are currently being spoofed, head over to the PineAP tab. Here you can also add or remove access points to the spoofing list.
 
-[Screenshot of made up network name]
+![](Images/Screenshot_knownfalse.png)
 
 Note that some devices will not connect to your open access point if the access point they had expected was a secured access point.
 
@@ -117,7 +119,7 @@ In the deauth settings you can see a whitelist and blacklist tab at the bottom, 
 
 This attack will allow us to view what websites the clients connected to the network are requesting. Open up the **urlsnarf** block and in the **Controls** select the **eth0** interface since we are using that as our internet uplink, and hit **Start**. You should be able to see any URL that a client is requesting show up in the **Output** window at the bottom. Please note that we are not yet doing any SSL stripping attacks so we won't be able to see any HTTPS requests yet.
 
-[Screenshot of urlsnarf log]
+![](Images/Screenshot_urlsnarfresults.png)
 
 We can use the **trapcookies** infusion to do much the same thing but with HTTP cookies instead. This is very useful since cookies often will contains session keys for any website where our target is currently logged in. This often means we can use this secret token to log in to the website as the target user.
 
@@ -169,7 +171,9 @@ This section is for troubleshooting problems only.
 ## Not able to find the IP address of the WiFi pineapple
 Firstly, double-check to make sure your ethernet connection is set up to receive an address over DHCP rather than being statically configured.
 If for any reason your WiFi pineapple is configured differently and it does not use the 172.16.42.0/24 range you can still find out what IP address you should be using to connect to your device by looking at your internet connection settings. It should always list the IP address the WiFi pineapple has assigned to you. Supposing we have been assigned the IP address **192.168.100.99**, we can already make a guess that is probably going to be right most of the time, and that is just to try the same address with a **1** in the last position. So we would try **192.168.100.1** as our IP address for the WiFi pineapple.
+
 In extremely rare cases when this won't work, we will need to look at network configuration and look for the subnet that the WiFi pineapple is operating in. This subnet may be displayed in two different ways, either with a suffix to the IP address that consists of a slash and some number, for example; **192.168.100.99/21**. Alternatively it may provide you a subnet mask that will look like and IP address that usually starts with **255.**. For example **255.255.248.0**. In these cases it is usually a good idea to use a tool like http://www.subnet-calculator.com/cidr.php to help you calculate the right address. For the cases where the **/21** notation is used, you enter this number in the **Mask bits** field. When you have a netmask for your IP address you can use the **CDIR netmask** dropdown to enter the netmask you have.
+
 When you have done this the calculator should show you an IP address in the **CDIR network (Route)** field. Simply add **1** to this ip address to find your WiFi pineapple. Following our example of the **/21** range, the displayed **CDIR network (Route)** will show you **192.168.96.0**, which means our WiFi pineapples IP address should be **192.168.69.1**.
 If you still cannot find the right IP address, you have the worlds oddest configuration, but you might still try to find a live IP address by using an nmap ping sweep on the subnet; `nmap -sP 192.168.100.99/21`. This will probably take a little while to complete, especially if the IP range is very big. You should get a list of live IP addresses in the IP range once the scan is complete. However if none of the above approaches worked to find the IP address of your WiFi pineapple, your guess is as good as mine as to which address in the list of live IP addresses could be your WiFi pineapple. (Hopefully there's only two and your laptop will be one of them.)
 
