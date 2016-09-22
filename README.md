@@ -155,6 +155,11 @@ We can also try another approach to letting clients view the browsing session. W
 
 To perform this attack, simply click into the **sslsplit** block and hit **Start**. You should see the connections that are being intercepted in the log window at the bottom of the screen.
 
+For example when we go to wordpress.com we will see the browser display a certificate error, but if the user should ignore this and log in anyway we will see their login credentials in the sslsplit logfile.
+
+![](Images/Screenshot_password.png)
+Image: Screenshot of the sslsplit logfile
+
 Note that any website using SSL certificate pinning will refuse to load if the target has visited it before. There will not even be any option to proceed past the certificate error.
 
 ## Redirecting DNS requests
