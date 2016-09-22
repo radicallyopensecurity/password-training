@@ -29,6 +29,7 @@ Now we can try to connect to the WiFi pineapple web interface by using the IP ad
 If you are using a brand new pineapple it will guide you through a short setup process, otherwise you can log in using **root** as the username and the password you had previously set up during the initial setup process. If you are not able to log in or don't know the password you can try a factory reset. (See the troubleshooting section at the bottom of this document.)
 
 ![](Images/Screenshot_webif.png)
+Image: Screenshot of the web interface
 
 ## Setting up network connection sharing
 In order to allow your WiFi pineapple to connect to the internet we will need to share the internet connection from our laptop to the WiFi pineapple. The instructions differ based on the operating system you are running on your laptop. Please skip ahead to the section for your specific OS.
@@ -59,11 +60,13 @@ The WiFi pineapple functionality can be extended by what are known as **Pineappl
 Head over to the **Pineapple Bar** section in the webinterface by clicking on the title of the box. This should bring up a new window showing a tab of already installed infusions. Click the tab marked **Pineapple Bar: Available** and then **show** on the **User infusions** to get a list of infusions we can install.
 
 ![](Images/Screenshot_pineapplebar.png)
+Image: Screenshot of available infusions in the pineapple bar
 
 As an example we will now install the **opkgmanager** infusion. Simply click the **install** link next to the infusion and choose if you want to install it to the WiFi pineapples internal storage or to the SD card. Usually we will have much more space available on the SD card so we will install there. If you have not SD card in your WiFi pineapple or your SD card is full you can also install to internal storage.
 Once the installation has finished it should show you a notification in the web interface.
 
 ![](Images/Screenshot_notificationinstalled.png)
+Image: Screenshot of the notification the infusion was installed
 
 Now when we go back to our main screen in the web interface we can see a new block named **OPKG Manager** has been added and when we click on the title we can see this infusion allows us to install and update packages on the WiFi pineapple.
 
@@ -83,7 +86,7 @@ Head over to the **Network** block in the web interface and click the **Access p
 
 ![](Images/Screenshot_hotspotnaming.png)
 ![](Images/Screenshot_hotspotphone.png)
-[Insert screenshots of AP settings and the name in the AP list]
+Image: Access point name in the interface and on phone
 
 At this point clients can start connecting to your WiFi access point and you will be able to start further attacks.
 
@@ -102,6 +105,7 @@ In your web interface you will have a **PineAP** block where we will be checking
 We're now spoofing access points! To see some more status details you can open up the **PineAP** block to see the clients that have associated with our access point as well as what IP address we've assigned them, the network name the connected to and usually the host name for their system. To see the access points that are currently being spoofed, head over to the PineAP tab. Here you can also add or remove access points to the spoofing list.
 
 ![](Images/Screenshot_knownfalse.png)
+Image: Screenshot of a WiFi access point name known to be spoofed
 
 Note that some devices will not connect to your open access point if the access point they had expected was a secured access point.
 
@@ -120,6 +124,7 @@ In the deauth settings you can see a whitelist and blacklist tab at the bottom, 
 This attack will allow us to view what websites the clients connected to the network are requesting. Open up the **urlsnarf** block and in the **Controls** select the **eth0** interface since we are using that as our internet uplink, and hit **Start**. You should be able to see any URL that a client is requesting show up in the **Output** window at the bottom. Please note that we are not yet doing any SSL stripping attacks so we won't be able to see any HTTPS requests yet.
 
 ![](Images/Screenshot_urlsnarfresults.png)
+Image: Screenshot of urlsnarf results page
 
 We can use the **trapcookies** infusion to do much the same thing but with HTTP cookies instead. This is very useful since cookies often will contains session keys for any website where our target is currently logged in. This often means we can use this secret token to log in to the website as the target user.
 
