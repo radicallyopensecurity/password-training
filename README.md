@@ -49,8 +49,7 @@ sudo bash wp5.sh
 The script will prompt you for IP address and interface name settings. The default values are normally fine, but double check the interface names and make sure the right IP addresses are used when you are on a different subnet than the default settings for the WiFi pineapple.
 
 ### Mac OSX
-
-### Windows
+Setting up internet connection sharing is done through the **Sharing** settings. See https://support.apple.com/kb/PH18704
 
 ## Check connectivity
 You can check if your WiFi pineapple indeed has internet connectivity now by clicking the **refresh** icon in the **WiFi Pineapple MK5** box. It will show you an error if it is unable to connect to the internet.
