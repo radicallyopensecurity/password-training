@@ -5,6 +5,7 @@ For the purposes of this demo we will be using the WiFi Pineapple mark 5. For th
 The WiFi pineapple can be set up in many different networking configurations. For the purposes of this demo we will be using the WiFi pineapple's own ehternet port as our management interface and bridge our laptops WiFi network to provide internet connectivity to the pineapple itself.
 
 ![](Images/network.png)
+Image: Network layout visualization for the demo network
 
 ## Getting connected to the WiFi pineapple
 The first thing that must be done after powering on the WiFi pineapple is to set up our management network so we can access and control it. This is accomplished by plugging an ethernet cable into the WiFi pineapple and into our own computer. The pineapple will work as our DHCP server and assign us an IP address. When powering on the WiFi pineapple it must first boot so it will take a minute or so before you are assigned an IP address via DHCP.
