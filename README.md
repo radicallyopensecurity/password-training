@@ -104,6 +104,9 @@ We will be doing a very basic "catch all" attack for the access point spoofing. 
 In your web interface you will have a **PineAP** block where we will be checking all the boxes except for the **Autostart** one. When we're doing a more targeted attack we would leave some of these off.
 We're now spoofing access points! To see some more status details you can open up the **PineAP** block to see the clients that have associated with our access point as well as what IP address we've assigned them, the network name the connected to and usually the host name for their system. To see the access points that are currently being spoofed, head over to the PineAP tab. Here you can also add or remove access points to the spoofing list.
 
+![](Images/Screenshot_pineapsettings.png)
+Image: Screenshot of the PineAP settings
+
 ![](Images/Screenshot_knownfalse.png)
 Image: Screenshot of a WiFi access point name known to be spoofed
 
