@@ -85,8 +85,7 @@ A WiFi access point with nobody connected isn't very interesting so it is time t
 
 Head over to the **Network** block in the web interface and click the **Access point** tab. Here we will see a section called **Open Access Point**, this will be the access point name we use for our clients. If you are planning to trick people into connecting to your access point by mistake you can set an SSID name like "KPN hotspot", "T-Mobile hotspot" or maybe the name of a company WiFi network you are near to. Make sure to uncheck the **hidden** box and hit **save**. It will prompt you to restart your WiFi in order to continue. At this point you should see the network pop up when you are looking for WiFi networks on a nearby device.
 
-![](Images/Screenshot_hotspotnaming.png)
-![](Images/Screenshot_hotspotphone.png)
+![](Images/Screenshot_hotspotnaming.png)![](Images/Screenshot_hotspotphone.png)
 Image: Access point name in the interface and on phone
 
 At this point clients can start connecting to your WiFi access point and you will be able to start further attacks.
