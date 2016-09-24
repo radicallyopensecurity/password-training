@@ -181,16 +181,19 @@ Image: Screenshot of the sslsplit logfile containing the username and password u
 ## Redirecting DNS requests
 **Required infusions:** dnsspoof
 
-We can also take over DNS services for our targets. This will allow us to make their websites resolve to any address we like. For example we could redirect them to a phising page or a proxy page that will capture any information we want.
+We can also take over DNS services for our targets. This will allow us to make their websites resolve to any address we like. For example we could redirect them to a phising page and capture the login information entered there, or we could set up a proxy page that will capture any information from our target that we want.
 
-In this example we will be redirecting google.com to catfacts.co. Because that is the only thing people google anyway right?
+To start the attack, click into the **dnsspoof** block in the web interface and head over to the **Hosts** tab. You should see one line for "example.com" is already in the configuration. Here you can enter any website and what IP address you want your target to get redirected to. Click **Save** when you are done and then **Start** in the controls.
 
-Click into the **dnsspoof** block in the web interface and head over to the **Hosts** tab. You should see one line for "example.com" is already in the configuration. We can look up the IP address of catfacts.co by using the command `dig +short www.catfacts.co` and we should come up with an IP address. In this case I got **54.243.205.142** as the result. Now add the entry for google.com and for good measure www.google.com too:
+### Practical demo with dnsspoof
+In this example we will be redirecting google.com to catfacts.co since everyone just googles cat facts anyway this would be a good way to streamline the process.
+
+ We can look up the IP address of catfacts.co by using the command `dig +short www.catfacts.co` and we should come up with an IP address. In this case I got **54.243.205.142** as the result. Now in the **Hosts** field, add the entry for google.com and for good measure www.google.com too:
 ```
 54.243.205.142 google.com
 54.243.205.142 www.google.com
 ```
-Click **Save** when you are done and then **Start** in the controls. Anybody connected client who is visiting google.com should now automatically be directed to some adorable kittens instead.
+ Anybody connected client who is visiting google.com should now automatically be directed to some adorable kittens instead.
 
 # Troubleshooting
 **You do NOT need to read this section unless you had problems during the setup.**
