@@ -94,6 +94,8 @@ Note; In some cases you will have to reset your WiFi pineapple the first time yo
 ## Automatic access point name broadcasting
 **Required infusions:** none
 
+**Note:** If you are attacking a specific access point name you DO NOT need to do this.
+
 If we don't want clients to have to connect to a specific access point, or we don't know what access points they may be able to connect to we can use the **Karma** and **PineAP** modules that is built into the WiFi pineapple. This module allows the WiFi pineapple to impersonate any and all WiFi access point name, all at once. The module works by looking for the WiFi network probe requests that all WiFi client devices send out. Simply saying the WiFi client will constantly send out beacons saying "Is there an access point around with the name 'My home wifi'" or any other access point name the device has stored. The WiFi pineapple will look for these requests and simply answer "Yes! That's me!" To any and all such probe requests. This will allow the client device to automatically connect to your pineapple access point, thinking it is an access point it knows and has connected to before.
 
 To set this up, make sure both WiFi interfaces on your WiFi pineapple are enabled. You can check the boxes for both wlan0 and wlan1 in the **Network** block.
@@ -129,6 +131,19 @@ This attack will allow us to view what websites the clients connected to the net
 Image: Screenshot of urlsnarf results page
 
 We can use the **trapcookies** infusion to do much the same thing but with HTTP cookies instead. This is very useful since cookies often will contains session keys for any website where our target is currently logged in. This often means we can use this secret token to log in to the website as the target user.
+
+### Practical demo with Trap Cookies
+We will be using the public demo site of the popular bulletin board software PHPBB for this demo. You can find it over at http://www.try-phpbb.com/31x/ for the most recent 3.1 version. We will not be trying to grab the login credentials themselves in this demo but rather the identifiers we need to get into the targets already active session. The target should log in with the demo username "administrator" and password "administrator". When this is done we will start the trapcookies service.
+
+As the target browses the website you should see the log window of the trapcookies page start to fill up with requests that are coming through. Contained in this log we should find all the information we need.
+
+![](Images/Screenshot_cookiesstolen.png)
+Image: Screenshot of Trap Cookies log containing session identifiers
+
+In the case of PHPBB, they also check if the User-Agent string matches with the session id so we will need to copy both. In the example we've used a Firefox plugin called "Live Headers" to replay a modified requests but you could get the same result with something like Burpsuite or any other proxy service that allows you to modify and replay HTTP requests. You can see that we are initially not logged in, but once we replay the HTTP request with the correct cookie and user-agent we copied from trapcookies that we are automatically given an administrator session on the bulletin board without ever having to enter the correct credentials.
+
+![](Images/Screenshot_cookiesreplayed.png)
+Image: Screenshot of phpbb replay attack with the original request above and the modified request below. In the background you can see the modified request automatically drops us into the administrators session.
 
 ## Dumping any traffic
 **Required infusions:** tcpdump
