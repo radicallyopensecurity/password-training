@@ -4,10 +4,17 @@ The password is stored in plaintext as an example. Real password managers would 
 However, those hashes are not secure, unless the user chooses a secure password!
 
 ##Requirements
+Windows VM - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+Select IE8 on Win7, as platform VirtualBox
+Download the .zip and extract. Open the extracted file with VirtualBox and launch it.
+
+Also download the following tools:
 Dumpit - http://www.downloadcrew.com/article/23854-dumpit
 HxD - http://www.heise.de/download/product/hxd-50764
 Volatility - http://downloads.volatilityfoundation.org/releases/2.5/volatility_2.5.win.standalone.zip
-#Dump ftp credentials.
+
+
+#Dump ftp credentials.(Linux)
 ## Usage
 Open any Linux docker instance.
 Switch inside the docker instance, enter the command but do not submit yet!
@@ -28,7 +35,7 @@ Finally, use Strings and Grep to find the password in the dump.
 strings ftpdumpfile | grep PASS
 ```
 
-#Dump Windows user password hashes with Volatility
+#Dump Windows user password hashes with Volatility(Windows)
 ## Usage
 ```
 Launch the tool dumpit.exe downloaded from the requirements.
@@ -58,7 +65,7 @@ https://crackstation.net/ .
 If the Password is simple enough. You now have the password of the Windows machine.
 
 
-#Dump Github login from Firefox history with a simple hex editor
+#Dump Github login from Firefox history with a simple hex editor(Windows)
 ##Usage
 ```
 Sign in to Github with the account rosdemo@trash-mail.com and the password secretpassword1
