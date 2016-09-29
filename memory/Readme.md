@@ -1,22 +1,31 @@
 # Memory dump
-This demo is a simple password manager which can be seen as a professional manager like Keepass etc.
-The password is stored in plaintext as an example. Real password managers would use hashes.
-However, those hashes are not secure, unless the user chooses a secure password!
-
+This demo contains a few demos:
+1. FTP PASS dump
+3. Windows user hash dump
+3. Dump Firefox history & cookies
+4. Dump Github login from Firefox process with a simple hex editor
 ##Requirements
 Windows VM - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+
 Python - https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi
+
 Select IE8 on Win7, as platform VirtualBox
+
 Download the .zip and extract. Open the extracted file with VirtualBox and launch it.
 
 Also download the following tools:
+
 Dumpit - http://www.downloadcrew.com/article/23854-dumpit
+
 HxD - http://www.heise.de/download/product/hxd-50764
+
 Volatility - http://downloads.volatilityfoundation.org/releases/2.5/volatility_2.5.win.standalone.zip
+
 Volatility plugins - https://github.com/superponible/volatility-plugins
+
 Paste the extracted .py files inside volatility-master/volatility/plugins
 
-#Dump ftp credentials.(Linux)
+# Dump ftp credentials.(Linux)
 ## Usage
 Open any Linux docker instance.
 Switch inside the docker instance, enter the command but do not submit yet!
@@ -37,7 +46,7 @@ Finally, use Strings and Grep to find the password in the dump.
 strings ftpdumpfile | grep PASS
 ```
 
-#Dump Windows user password hashes with Volatility(Windows)
+# Dump Windows user password hashes with Volatility(Windows)
 ## Usage
 ```
 Launch the tool dumpit.exe downloaded from the requirements.
@@ -64,10 +73,12 @@ python vol.py -f IE8WIN7-20160923-152024.raw --profile=Win7SP1x86 hashdump -s 0x
 
 Lastly, you see the hashes from the Users. Select the Password from the IEUser and crack it online with a Service like
 https://crackstation.net/ .
+
 If the Password is simple enough. You now have the password of the Windows machine.
 
-#Dump Firefox History & Cookies
-##Usage
+# Dump Firefox History & Cookies
+## Usage
+
 Surf a bit on Sites like facebook,gmail etc. Login to some sites.
 
 Use the following command to dump the firefox history into a txt file.
