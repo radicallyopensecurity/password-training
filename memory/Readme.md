@@ -1,5 +1,5 @@
 # Memory dump
-This demo contains a few demos:
+### This demo contains a few demos:
 1. FTP PASS dump
 3. Windows user hash dump
 3. Dump Firefox history & cookies
@@ -10,11 +10,9 @@ Windows VM - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
 
 Python - https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi
 
-Select IE8 on Win7, as platform VirtualBox
+Select IE8 on Win7, as platform VirtualBox. Download the .zip and extract. Open the extracted file with VirtualBox and launch it.
 
-Download the .zip and extract. Open the extracted file with VirtualBox and launch it.
-
-Also download the following tools:
+### Also download the following tools:
 
 Dumpit - http://www.downloadcrew.com/article/23854-dumpit
 
