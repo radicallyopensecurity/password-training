@@ -24,7 +24,7 @@ Volatility plugins - https://github.com/superponible/volatility-plugins
 
 Paste the extracted .py files inside volatility-master/volatility/plugins
 
-# Dump ftp credentials (Linux)
+# Dump FTP credentials (Linux)
 ## Usage
 Open any Linux docker instance.
 Switch inside the docker instance, enter the command but do not submit yet!
@@ -63,8 +63,8 @@ Now use Volatility to check for the hivelist
 python vol.py -f IE8WIN7-20160923-152024.raw --profile=Win7SP1x86 hivelist
 ```
 
-Now that we see the list. Use the virtual adress from the Entry with the name '\SystemRoot\System32\Config\SAM'.
-(This is the File where Windows stores the user passwords)
+Now that we see the list. Use the virtual address from the Entry with the name '\SystemRoot\System32\Config\SAM'.
+(This is the file where Windows stores the user passwords)
 ```
 python vol.py -f IE8WIN7-20160923-152024.raw --profile=Win7SP1x86 hashdump -s 0x9515f598 >
  hashes.txt
@@ -78,13 +78,13 @@ If the Password is simple enough. You now have the password of the Windows machi
 # Dump Firefox History & Cookies
 ## Usage
 
-Surf a bit on Sites like facebook,gmail etc. Login to some sites.
+Surf a bit on Sites like Facebook,Gmail etc. Login to some sites.
 
 Use the following command to dump the firefox history into a txt file.
 ```
 python vol.py --plugins=plugins/ -f IE8WIN7-20160927-111546.raw firefoxhistory > history.txt
 ```
-And this one to dump the partial cookies of firefox.
+And this one to dump the partial cookies of Firefox.
 ```
 python vol.py --plugins=plugins/ -f IE8WIN7-20160927-111546.raw firefoxcookies > cookies.txt
 ```
@@ -94,7 +94,7 @@ python vol.py --plugins=plugins/ -f IE8WIN7-20160927-111546.raw firefoxcookies >
 Sign in to Github with the account rosdemo@trash-mail.com and the password secretpassword1
 Now launch dumpit.exe located on desktop
 ```
-Open the hexeditor HxD
+Open the hex editor HxD
 ```
 Hit Strg+f and enter "user[password]"
 ```
