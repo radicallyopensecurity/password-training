@@ -36,7 +36,7 @@ pgrep -f ftp | xargs gcore
 Open another docker session and open ftp.
 ```
 docker exec -it --privileged dockername bash
-ftp lima-ftp.de
+ftp some-ftp-host.com
 ```
 Now enter username test and enter any password.
 Right after you entered the password, switch to the other terminal and hit enter.
