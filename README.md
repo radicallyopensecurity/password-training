@@ -7,6 +7,12 @@ The WiFi pineapple can be set up in many different networking configurations. Fo
 ![](Images/network.png)
 Image: Network layout visualization for the demo network
 
+### Wifi bridging
+**Note: This is extra information. You do not need to do this to do the demos.**
+Another common network topology is to bridge the WiFi Pineapple directly to an existing network. The advantage is that you do not need to keep a laptop in the setup. This is especially useful when you are leaving the WiFi pineapple in a testing area for extended periods of time. The downside is that you are limited to the processing power and storage capacity of the WiFi pineapple hardware itself. When a laptop is in the network path you can use that to perform attacks on connected clients too. The setup process and WiFi configuration is often also easier to do since we do not need to reconnect when the WiFi configuration is changed. Karma and PineAP usage will in some cases also change WiFi settings, causing connectivity issues with using WiFi bridging.
+
+Setting up WiFi bridging from the web interface. In the **Network** block, navigate to the **Client mode** tab. Here you will be able to join a WiFi network. You can select a WiFi network from the drop-down and enter credentials if required. Once the Pineapple is connected it should have connectivity through the selected WiFi network.
+
 ## Getting connected to the WiFi pineapple
 The first thing that must be done after powering on the WiFi pineapple is to set up our management network so we can access and control it. This is accomplished by plugging an ethernet cable into the WiFi pineapple and into our own computer. The pineapple will work as our DHCP server and assign us an IP address. When powering on the WiFi pineapple it must first boot so it will take a minute or so before you are assigned an IP address via DHCP.
 
@@ -173,6 +179,7 @@ To perform this attack, simply click into the **sslsplit** block and hit **Start
 Note that any website using SSL certificate pinning will refuse to load if the target has visited it before. There will not even be any option to proceed past the certificate error.
 
 ### Practical demo with sslsplit
+**Note: Since writing this guide, wordpress.com has updated their SSL configuration to prevent this attack.**
 For this example sslsplit should be running before the target goes to the website. When the target browses to wordpress.com they will be presented with a certificate warning, if the target chooses to ignore the warning and log in anyway we will see their login credentials in the sslsplit logfile.
 
 ![](Images/Screenshot_password.png)
@@ -207,6 +214,17 @@ In extremely rare cases when this won't work, we will need to look at network co
 
 When you have done this the calculator should show you an IP address in the **CDIR network (Route)** field. Simply add **1** to this ip address to find your WiFi pineapple. Following our example of the **/21** range, the displayed **CDIR network (Route)** will show you **192.168.96.0**, which means our WiFi pineapples IP address should be **192.168.69.1**.
 If you still cannot find the right IP address, you have the worlds oddest configuration, but you might still try to find a live IP address by using an nmap ping sweep on the subnet; `nmap -sP 192.168.100.99/21`. This will probably take a little while to complete, especially if the IP range is very big. You should get a list of live IP addresses in the IP range once the scan is complete. However if none of the above approaches worked to find the IP address of your WiFi pineapple, your guess is as good as mine as to which address in the list of live IP addresses could be your WiFi pineapple. (Hopefully there's only two and your laptop will be one of them.)
+
+### Note on internet connection sharing
+If your wifi pineapple does not give you the IP address **172.16.42.42** you may need to changes some configuration on the WiFi pineapple in order to have it use the right IP address as its default gateway. You can log in over ssh by connecting to the Pineapple IP address;
+```
+ssh root@172.16.42.1
+```
+Be sure to replace the IP address with the one your Pineapple is using. Once you have logged in you can set the default gateway;
+```
+ip route add default 172.16.42.42
+```
+Again, make sure you replace the IP address in the example with the IP address your laptop was assigned.
 
 ## Using alternate versions of the WiFi pineapple
 You can find setup guides for most of them over at https://www.hak5.org/category/episodes/pineapple-university as well as guides on how to bride your network connection to them.
