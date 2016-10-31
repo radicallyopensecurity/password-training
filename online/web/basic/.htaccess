@@ -1,6 +1,0 @@
-AuthType Basic
-AuthName "Login"
-AuthUserFile /var/www/html/basic/.htpasswd
-Require valid-user
-
-
