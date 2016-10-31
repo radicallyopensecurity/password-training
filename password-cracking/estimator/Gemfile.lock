@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    highline (1.7.8)
+    humanize (1.1.2)
+    terminal-table (1.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  highline
+  humanize
+  terminal-table
+
+BUNDLED WITH
+   1.12.5
