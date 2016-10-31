@@ -5,7 +5,7 @@ git clone ssh://git@gitlabs.radicallyopensecurity.com:7722/ros-demos/docker-imag
 cd docker-image
 git clone ssh://git@gitlabs.radicallyopensecurity.com:7722/ros-demos/password-cracking.git
 ```
-**Note: git clone URI is subject to change upon publishing of this guide.**
+**Note: If you are pulling this from github, you will need to move the password-cracking folder inside of the docker-image folder to build the docker image.**
 
 # Add user to docker group
 ```
