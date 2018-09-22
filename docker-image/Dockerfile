@@ -28,4 +28,3 @@ RUN mkdir /usr/share/rainbowtables
 ADD https://www.radicallyopensecurity.com/rainbow/lm_alpha-numeric.xz /usr/share/rainbowtables/
 RUN unxz /usr/share/rainbowtables/lm_alpha-numeric.xz
 RUN mv /usr/share/rainbowtables/lm_alpha-numeric /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt
-RUN cd /root/password-cracking/memory && make
