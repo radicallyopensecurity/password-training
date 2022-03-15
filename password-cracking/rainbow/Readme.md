@@ -22,4 +22,4 @@ Rcrack expects you to manually separate the two hashes that make up a full ML ha
 If you are using the **generator.rb** script to generate your LM hash to crack with a rcrack, use **hashcat** as your choice of tool since the output file for hashcat also splits the hash in two. This means that LM hashes generated for hashcat can also be fed directly to rcrack without having to manually split the hash in two.
 
 ## Note on the included rainbow table
-We utilizes a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.
+We utilize a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.

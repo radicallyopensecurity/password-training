@@ -1,8 +1,7 @@
 # Password cracking estimator
 This script provides an estimate of how long it will take to crack a given password. For online attacks it is assumed the network up-link will be the bottleneck. For offline cracking it assumes the available processing power is limiting factor. Running the script can be done by issuing the following commands inside the docker container;
 ```
-cd /root/password-cracking/estimator/
-ruby estimator.rb
+cd /root/password-cracking/estimator/ ; ./run/sh
 ```
 
 ## Online cracking
