@@ -18,13 +18,6 @@ RUN apt-get update && apt-get install \
 COPY password-cracking /root/password-cracking
 RUN gzip -d /usr/share/wordlists/rockyou.txt.gz
 RUN gzip -d /root/password-cracking/wordlists/dutch.txt.gz -c > /usr/share/wordlists/dutch.txt
-# RUN PERL_MM_USE_DEFAULT=1 cpan install Crypt::ScryptKDF
-# RUN gem install highline -v '1.7.8'
-# RUN gem install humanize -v '1.1.2'
-# RUN gem install terminal-table -v '1.6.0'
-# RUN gem install bundler:1.12.5
-# RUN gem install bcrypt -v '3.1.11'
-# RUN gem install smbhash -v '1.0.2'
 RUN cd /root/password-cracking/estimator && bundle update --bundler && bundle install
 RUN cd /root/password-cracking/generator && bundle update --bundler && bundle install
 
