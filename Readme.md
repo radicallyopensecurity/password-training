@@ -187,6 +187,8 @@ Execute the following commands in the docker shell to start the respective demos
 /generator
 ```
 
+Note: When creating a scrypt hash to be cracked, use hashcat! JtR won't work.
+
 
 
 ## Wordlists
