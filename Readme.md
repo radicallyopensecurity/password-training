@@ -113,6 +113,64 @@ This should present you with the following prompt:
 
 ```
 
+# Setup instruction for Windows 10 (64-bit)
+## Download and isntall binary
+```
+https://docs.docker.com/desktop/windows/install/
+```
+
+Locate the blue button that says "Docker Desktop for Windows" and click it
+This will download the binary
+
+## Install
+Locate the downloads on your filesystem and open it. It will want to make changes to your system, click yes.
+
+Note: Windows will need to be restarted as part of the installation process.
+
+At one point, it will ask you to install WSL. Follow this instruction presented.
+Upon completion, restart docker.
+
+## Build docker image
+# Build the docker image
+Perform this step before the training. This step requires an internet connection.
+
+## Change the working directory to the directory containing this file
+Open a comand windows (cmd.exe)
+```
+cd <prefix>/password-training
+```
+
+## Build docker image
+```
+./build.bat
+```
+* Builds a docker image
+* Uses the current working directory as build context (.)
+* Uses the dockerfile ./Dockerfile
+* Tags the resulting image with "training" (-t)
+  
+## Verify correct creation of image
+```
+docker image ls
+```
+Should yield:
+```
+REPOSITORY                    TAG       IMAGE ID       CREATED             SIZE
+training                      latest    adac19102632   2 minutes ago       2.15GB
+```
+
+# Enter kali linux container shell
+```
+$ ./run.bat
+```
+This should present you with the following prompt:
+```
+┌──(root㉿2bc68ff2fe4b)-[/]
+└─# 
+
+```
+
+
 # File locations
 ## Password cracking demos
 Inside the docker container, the demos are located in the `/root/password-cracking/` directory.
