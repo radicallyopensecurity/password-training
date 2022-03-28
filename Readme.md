@@ -1,7 +1,7 @@
 # Password training
-This repositoy contains several demonstrations that could be used in security awareness trainings on the topic of password security.
+This repository contains several demonstrations that could be used in security awareness trainings on the topic of password security.
 
-## Technical requirments
+## Technical requirements
 These demonstations use docker to setup a container, based off the kali linux distribution. Therefore it is necessary to set up docker before attempting to preform the demonstrations. Details for Ubuntu 20.04 and Windows 10 will be provided below.
 
 ---
@@ -73,7 +73,7 @@ TriggeredBy: ● docker.socket
 
 
 
-# Build the docker image
+## Build the docker image
 Perform this step before the training. This step requires an internet connection.
 
 ## Change the working directory to the directory containing this file
@@ -114,24 +114,22 @@ This should present you with the following prompt:
 ```
 
 # Setup instruction for Windows 10 (64-bit)
-## Download and isntall binary
+## Download and install binary
 ```
 https://docs.docker.com/desktop/windows/install/
 ```
 
-Locate the blue button that says "Docker Desktop for Windows" and click it
-This will download the binary
+Locate the blue button that says "Docker Desktop for Windows" and click it. This will download the binary
 
 ## Install
-Locate the downloads on your filesystem and open it. It will want to make changes to your system, click yes.
+Locate the download on your filesystem and open it. It will want to make changes to your system, click yes.
 
 Note: Windows will need to be restarted as part of the installation process.
 
-At one point, it will ask you to install WSL. Follow this instruction presented.
+At one point, it will ask you to install WSL. Follow the instruction presented.
 Upon completion, restart docker.
 
 ## Build docker image
-# Build the docker image
 Perform this step before the training. This step requires an internet connection.
 
 ## Change the working directory to the directory containing this file
@@ -171,7 +169,7 @@ This should present you with the following prompt:
 ```
 
 
-# File locations
+# Demo locations
 ## Password cracking demos
 Inside the docker container, the demos are located in the `/root/password-cracking/` directory.
 
