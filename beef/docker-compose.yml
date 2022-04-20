@@ -1,0 +1,23 @@
+---
+version: "3.5"
+
+services:
+  beef:
+    container_name: beef
+    extra_hosts:
+      - beef.local:127.0.0.1
+    image: ros/beef
+    build: .
+    ports:
+      - 127.0.0.1:3000:3000
+    restart: unless-stopped
+    volumes:
+      - ./config.yaml:/beef/config.yaml
+  juice-shop:
+    container_name: juice-shop
+    image: bkimminich/juice-shop:v13.3.0
+    ports:
+      - 127.0.0.1:3500:3000
+    environment:
+      - NODE_ENV=quiet
+    restart: unless-stopped
