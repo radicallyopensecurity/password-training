@@ -21,10 +21,29 @@ This is the view point of the attacker. At the left hand there's an overview
 with Hooked Browsers: clients that can be controlled by the BeEF framework. When
 starting up, this will be empty.
 
-## Victim's point of view
+## Victim's point of view (1)
 
-For the victim's point of view, open a _new browser window_. Let's now surf to a
-vulnerable site which contains a Cross-Site Scripting vulnerability. Go to
+There are two vulnerable web sites. One has already been exploited, and another
+one needs manual exploitation. Both examples can be used throughout the demo,
+but the Juice Shop example is recommended, as it's more realistic.
+
+For the victim's point of view, open a _new browser window_. The same browser
+window can be used for both examples.
+
+### Automatically exploited (simple form)
+
+Let's now surf to a vulnerable site which contains a Cross-Site Scripting
+vulnerability.
+[http://vulnerable.local:3000/demos/basic.html](http://vulnerable.local:3000/demos/basic.html)
+
+This specific vulnerable instance has already been exploited: This is an example
+of a 'stored Cross-Site Scripting vulnerability', where the payload is
+automatically executed. Even though you're visiting `vulnerable.local:3000`,
+there's a direct hook into the BeEF framework.
+
+### Manual exploitation (Juice Shop)
+
+For a more realistic scenario, go to
 [http://vulnerable.local:3500](http://vulnerable.local:3500) and click on the
 search icon in the top right. This will open up a search box. Search for
 "banana". This will return all results having "banana" in their description.
@@ -121,16 +140,21 @@ Next the attacker can trick the victim into divulging secrets. Search for
 _Pretty Theft_ and execute that module. The victim will now see a popup, asking
 to enter a username and password. This is how credentials can be stolen.
 
-For another example, search for _Fake_ and select the _Fake Flash Update_
-module. This will send a convincingly looking update notification. As soon as
-the victim clicks **anywhere**, a file will be downloaded. The payload itself
-can be modified in the web interface.
+For another example, search for _Fake_ and select the _Fake Notification Bar
+(Chrome)_ module. In the right hand of the screen, enter the following as URL:
 
-For another example, search for _Notification_ and select the _Fake Notification
-Bar (Chrome)_ module. This will send a notification to the victim. If the victim
-clicks on the notification, it will download a binary file. Note that this step
-will fail (the binary file isn't present on our Attacker server), but this will
-demonstrate how easy it is to trick victims.
+```
+http://beef.local:3000/demos/dropper.exe
+```
+
+This file is located on the BeEF server, and will be the payload. For
+demonstration purposes, this is a Windows executable, the calculator.
+
+When clicking on _Execute_, the module will send a convincingly looking update
+notification. As soon as the victim clicks on the notification, a file will be
+downloaded.
+
+**The attacker successfully pushed a rogue executable to the victim**
 
 ### Fun and games
 

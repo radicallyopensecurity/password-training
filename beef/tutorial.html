@@ -24,11 +24,36 @@
   with Hooked Browsers: clients that can be controlled by the BeEF framework.
   When starting up, this will be empty.
 </p>
-<h2 id="victims-point-of-view">Victim’s point of view</h2>
+<h2 id="victims-point-of-view-1">Victim’s point of view (1)</h2>
 <p>
-  For the victim’s point of view, open a <em>new browser window</em>. Let’s now
-  surf to a vulnerable site which contains a Cross-Site Scripting vulnerability.
-  Go to
+  There are two vulnerable web sites. One has already been exploited, and
+  another one needs manual exploitation. Both examples can be used throughout
+  the demo, but the Juice Shop example is recommended, as it’s more realistic.
+</p>
+<p>
+  For the victim’s point of view, open a <em>new browser window</em>. The same
+  browser window can be used for both examples.
+</p>
+<h3 id="automatically-exploited-simple-form">
+  Automatically exploited (simple form)
+</h3>
+<p>
+  Let’s now surf to a vulnerable site which contains a Cross-Site Scripting
+  vulnerability.
+  <a href="http://vulnerable.local:3000/demos/basic.html"
+    >http://vulnerable.local:3000/demos/basic.html</a
+  >
+</p>
+<p>
+  This specific vulnerable instance has already been exploited: This is an
+  example of a ‘stored Cross-Site Scripting vulnerability’, where the payload is
+  automatically executed. Even though you’re visiting
+  <code>vulnerable.local:3000</code>, there’s a direct hook into the BeEF
+  framework.
+</p>
+<h3 id="manual-exploitation-juice-shop">Manual exploitation (Juice Shop)</h3>
+<p>
+  For a more realistic scenario, go to
   <a href="http://vulnerable.local:3500">http://vulnerable.local:3500</a> and
   click on the search icon in the top right. This will open up a search box.
   Search for “banana”. This will return all results having “banana” in their
@@ -157,18 +182,23 @@
 </p>
 <p>
   For another example, search for <em>Fake</em> and select the
-  <em>Fake Flash Update</em> module. This will send a convincingly looking
-  update notification. As soon as the victim clicks <strong>anywhere</strong>, a
-  file will be downloaded. The payload itself can be modified in the web
-  interface.
+  <em>Fake Notification Bar (Chrome)</em> module. In the right hand of the
+  screen, enter the following as URL:
+</p>
+<pre><code>http://beef.local:3000/demos/dropper.exe</code></pre>
+<p>
+  This file is located on the BeEF server, and will be the payload. For
+  demonstration purposes, this is a Windows executable, the calculator.
 </p>
 <p>
-  For another example, search for <em>Notification</em> and select the
-  <em>Fake Notification Bar (Chrome)</em> module. This will send a notification
-  to the victim. If the victim clicks on the notification, it will download a
-  binary file. Note that this step will fail (the binary file isn’t present on
-  our Attacker server), but this will demonstrate how easy it is to trick
-  victims.
+  When clicking on <em>Execute</em>, the module will send a convincingly looking
+  update notification. As soon as the victim clicks on the notification, a file
+  will be downloaded.
+</p>
+<p>
+  <strong
+    >The attacker successfully pushed a rogue executable to the victim</strong
+  >
 </p>
 <h3 id="fun-and-games">Fun and games</h3>
 <p>
