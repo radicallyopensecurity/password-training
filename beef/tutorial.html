@@ -185,10 +185,14 @@
   <em>Fake Notification Bar (Chrome)</em> module. In the right hand of the
   screen, enter the following as URL:
 </p>
-<pre><code>http://beef.local:3000/demos/dropper.exe</code></pre>
+<pre><code>http://beef.local:3000/demos/droppers/dropper.exe</code></pre>
 <p>
   This file is located on the BeEF server, and will be the payload. For
-  demonstration purposes, this is a Windows executable, the calculator.
+  demonstration purposes, this is a Windows executable, the calculator. Note
+  that you can add any file in the <code>droppers</code> directory, and it can
+  be accessed directly using
+  <code>http://beef.local:3000/demos/droppers/</code> and then the name of the
+  file.
 </p>
 <p>
   When clicking on <em>Execute</em>, the module will send a convincingly looking

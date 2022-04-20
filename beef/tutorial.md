@@ -144,11 +144,14 @@ For another example, search for _Fake_ and select the _Fake Notification Bar
 (Chrome)_ module. In the right hand of the screen, enter the following as URL:
 
 ```
-http://beef.local:3000/demos/dropper.exe
+http://beef.local:3000/demos/droppers/dropper.exe
 ```
 
 This file is located on the BeEF server, and will be the payload. For
-demonstration purposes, this is a Windows executable, the calculator.
+demonstration purposes, this is a Windows executable, the calculator. Note that
+you can add any file in the `droppers` directory, and it can be accessed
+directly using `http://beef.local:3000/demos/droppers/` and then the name of the
+file.
 
 When clicking on _Execute_, the module will send a convincingly looking update
 notification. As soon as the victim clicks on the notification, a file will be

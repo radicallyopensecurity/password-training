@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./config.yaml:/beef/config.yaml
-      - ./dropper.exe:/beef/extensions/demos/html/dropper.exe
+      - ./droppers:/beef/extensions/demos/html/droppers/
   juice-shop:
     container_name: juice-shop
     image: bkimminich/juice-shop:v13.3.0
