@@ -11,6 +11,9 @@ Perform the setup steps _before_ you start the training. Installation will take 
 
 ---
 
+# Setup docker for MacOS
+* Follow the instructions [here](https://docs.docker.com/desktop/mac/install/)
+
 # Setup docker instruction for Ubuntu 20.04 (Hirsute)
 ## Update apt cache and install base packages
 ```
@@ -73,34 +76,6 @@ TriggeredBy: ● docker.socket
 
 
 
-## Build the docker image
-Perform this step before the training. This step requires an internet connection.
-
-## Change the working directory to the directory containing this file
-```
-cd <prefix>/password-training
-```
-
-## Build docker image
-```
-./build.sh
-```
-* Builds a docker image
-* Uses the current working directory as build context (.)
-* Uses the dockerfile ./Dockerfile
-* Tags the resulting image with "training" (-t)
-  
-
-
-## Verify correct creation of image
-```
-docker image ls
-```
-Should yield:
-```
-REPOSITORY                    TAG       IMAGE ID       CREATED             SIZE
-training                      latest    adac19102632   2 minutes ago       2.15GB
-```
 
 # Enter kali linux container shell
 ```
@@ -129,25 +104,36 @@ Note: Windows will need to be restarted as part of the installation process.
 At one point, it will ask you to install WSL. Follow the instruction presented.
 Upon completion, restart docker.
 
-## Build docker image
+
+
+
+
+# Setting up the docker image for use
+## Build the docker image
 Perform this step before the training. This step requires an internet connection.
 
 ## Change the working directory to the directory containing this file
-Open a comand windows (cmd.exe)
 ```
 cd <prefix>/password-training
 ```
 
 ## Build docker image
+For linux and mac hosts:
+```
+./build.sh
+```
+For Windows hosts:
 ```
 ./build.bat
 ```
+
 * Builds a docker image
 * Uses the current working directory as build context (.)
 * Uses the dockerfile ./Dockerfile
 * Tags the resulting image with "training" (-t)
   
 ## Verify correct creation of image
+For all hosts:
 ```
 docker image ls
 ```
@@ -157,7 +143,14 @@ REPOSITORY                    TAG       IMAGE ID       CREATED             SIZE
 training                      latest    adac19102632   2 minutes ago       2.15GB
 ```
 
-# Enter kali linux container shell
+# Run the demos
+## Enter kali linux container shell
+For linux and mac hosts:
+```
+$ ./run.sh
+```
+
+For windows hosts:
 ```
 $ ./run.bat
 ```
