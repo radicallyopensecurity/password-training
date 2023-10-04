@@ -13,13 +13,75 @@ Rainbowcrack is a small suite of tools to work with rainbow tables. For this dem
 For this demo a small rainbow table has been generated for windows LM hashes. It only contains alphanumeric passwords.
 
 ### Rainbowcrack command syntax
-You may specify one or more rainbow table files to use in the cracking process, followed by the -h option to specify a hash directly or the -l option to specify a list of hashes contained in a file. The -f and -n options are available for pwdump files but we will not be using those here.
+You may specify one or more rainbow table files to use in the cracking process, followed by the -h option to specify a hash directly or the -m option to specify a hash. Older versions of rcrack had support for the -l flag, with which you could specify hashes in a contained in a file. However, in v1.8 this functionality seems to be broken. The -f and -n options are available for pwdump files but we will not be using those here.
+
 ```
-rcrack /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt -l /root/password-cracking/rainbow/hashes_lm.txt
+./run.sh
 ```
+
+This script iterates over the hashes in `hashes_lm.txt` and cracks the separately using rcrack.
+
+The output should look like this:"
+
+```
+1 rainbow tables found
+memory available: 22589820108 bytes
+memory for rainbow chain traverse: 60800 bytes per hash, 60800 bytes for 1 hashes
+memory for rainbow table buffer: 2 x 536870928 bytes
+disk: /usr/share/rainbowcrack//lm_alpha-numeric#1-7_1_3800x33554432_0.rt: 536870912 bytes read
+disk: finished reading all files
+plaintext of 36caf2ac869e59e2 is HASH234
+
+statistics
+----------------------------------------------------------------
+plaintext found:                             1 of 1
+total time:                                  0.52 s
+time of chain traverse:                      0.36 s
+time of alarm check:                         0.15 s
+time of disk read:                           0.25 s
+hash & reduce calculation of chain traverse: 7216200
+hash & reduce calculation of alarm check:    3893631
+number of alarm:                             3074
+performance of chain traverse:               19.88 million/s
+performance of alarm check:                  26.49 million/s
+
+result
+----------------------------------------------------------------
+36caf2ac869e59e2  HASH234  hex:48415348323334
+1 rainbow tables found
+memory available: 22590819532 bytes
+memory for rainbow chain traverse: 60800 bytes per hash, 60800 bytes for 1 hashes
+memory for rainbow table buffer: 2 x 536870928 bytes
+disk: /usr/share/rainbowcrack//lm_alpha-numeric#1-7_1_3800x33554432_0.rt: 536870912 bytes read
+disk: finished reading all files
+
+statistics
+----------------------------------------------------------------
+plaintext found:                             0 of 1
+total time:                                  0.52 s
+time of chain traverse:                      0.36 s
+time of alarm check:                         0.16 s
+time of disk read:                           0.21 s
+hash & reduce calculation of chain traverse: 7216200
+hash & reduce calculation of alarm check:    4074101
+number of alarm:                             3118
+performance of chain traverse:               20.16 million/s
+performance of alarm check:                  25.95 million/s
+
+result
+----------------------------------------------------------------
+aad3b435b51404ee  <not found>  hex:<not found>
+```
+
+The above output shows that the retrieved password is 
+```
+HASH234
+```
+And cracked in under a second.
+
 ### Note on cracking LM hashes
 Rcrack expects you to manually separate the two hashes that make up a full ML hash. In the "hashes_lm.txt" file included with this demo that has already been done for you so you can pass it directly to rcrack as is.
 If you are using the **generator.rb** script to generate your LM hash to crack with a rcrack, use **hashcat** as your choice of tool since the output file for hashcat also splits the hash in two. This means that LM hashes generated for hashcat can also be fed directly to rcrack without having to manually split the hash in two.
 
 ## Note on the included rainbow table
-We utilizes a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.
+We utilize a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.

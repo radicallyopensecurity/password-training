@@ -5,7 +5,7 @@ You can use this tool to generate password hashes of different types and the joh
 The generator script may be found in the `/root/password-cracking/generator/` directory inside your docker container.
 Running the script requires no special parameters:
 ```
-ruby generator.rb
+/root/password-cracking/generator/ ; ./run/sh
 ```
 
 The script will prompt you for any information it requires, such as hash types and attack methods. It will write a file to the current working directory containing the generated hash and output the command to crack it in the terminal.
