@@ -11,11 +11,13 @@ Perform the setup steps _before_ you start the training. Installation will take 
 
 ---
 
-# Setup docker for MacOS
-* Follow the instructions [here](https://docs.docker.com/desktop/mac/install/)
+## Install Docker
 
-# Setup docker instruction for Ubuntu 20.04 (Hirsute)
-## Update apt cache and install base packages
+### Instructions for MacOS
+To run Docker on MacOS, you need to install Docker Desktop. The isntructions on how to install can be found [here](https://docs.docker.com/desktop/mac/install/). After installing, start the application.
+
+### Instructions for Ubuntu 20.04 (Hirsute)
+1.  Update apt cache and install base packages
 ```
  sudo apt-get update
 ```
@@ -27,35 +29,35 @@ Perform the setup steps _before_ you start the training. Installation will take 
     lsb-release
 ```
 
-## Add Docker’s official GPG key:
+2. Add Docker’s official GPG key:
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
-## Add docker's stable repository
+3. Add docker's stable repository
 ```
  echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   ```
 
-## Install docker engine
+4. Install docker engine
 ```
  sudo apt-get update
  sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-## Add user to docker group
+5. Add user to docker group
 ```
 sudo usermod -aG docker $(whoami)
 ```
 
-## Logout of your session and log back in, or restart your system:
+5. Logout of your session and log back in, or restart your system:
 ```
 sudo shutdown -r now
 ```
 
-## Confirm operation of docker daemon
+6. Confirm operation of docker daemon
 ```
 sudo systemctl status docker
 ```
@@ -75,9 +77,25 @@ TriggeredBy: ● docker.socket
 * Note the Active: active (running) line
 
 
+### Instructions for Windows 10 (64-bit)
+1.  Download and install binary
+```
+https://docs.docker.com/desktop/windows/install/
+```
+
+Locate the blue button that says "Docker Desktop for Windows" and click it. This will download the binary
+
+2. Install
+Locate the download on your filesystem and open it. It will want to make changes to your system, click yes.
+
+Note: Windows will need to be restarted as part of the installation process.
+
+At one point, it will ask you to install WSL. Follow the instruction presented.
+Upon completion, restart docker.
 
 
-# Enter kali linux container shell
+
+## (?) Enter kali linux container shell
 ```
 $ ./run.sh
 ```
@@ -88,37 +106,26 @@ This should present you with the following prompt:
 
 ```
 
-# Setup instruction for Windows 10 (64-bit)
-## Download and install binary
-```
-https://docs.docker.com/desktop/windows/install/
-```
-
-Locate the blue button that says "Docker Desktop for Windows" and click it. This will download the binary
-
-## Install
-Locate the download on your filesystem and open it. It will want to make changes to your system, click yes.
-
-Note: Windows will need to be restarted as part of the installation process.
-
-At one point, it will ask you to install WSL. Follow the instruction presented.
-Upon completion, restart docker.
 
 
 
-
-
-# Setting up the docker image for use
-## Build the docker image
+## Setting up the docker image for use
+### Build the docker image
 Perform this step before the training. This step requires an internet connection.
 
-## Change the working directory to the directory containing this file
+### Change the working directory to the directory containing this file
 ```
 cd <prefix>/password-training
 ```
 
+## Clone this repository
+
+Download this repository as [zip](https://github.com/radicallyopensecurity/password-training/archive/refs/heads/master.zip) or clone `https://github.com/radicallyopensecurity/password-training/archive/refs/heads/master.zip`. When finished, open a terminal and go to the repository directory, hereafter referred to as `REPO_DIR`.
+
 ## Build docker image
-For linux and mac hosts:
+(from REPO_DIR)
+
+On Linux and Mac:
 ```
 ./build.sh
 ```
@@ -132,7 +139,7 @@ For Windows hosts:
 * Uses the dockerfile ./Dockerfile
 * Tags the resulting image with "training" (-t)
   
-## Verify correct creation of image
+### Verify correct creation of image
 For all hosts:
 ```
 docker image ls
@@ -143,8 +150,8 @@ REPOSITORY                    TAG       IMAGE ID       CREATED             SIZE
 training                      latest    adac19102632   2 minutes ago       2.15GB
 ```
 
-# Run the demos
-## Enter kali linux container shell
+## Run the demos
+### Enter kali linux container shell
 For linux and mac hosts:
 ```
 $ ./run.sh
@@ -162,18 +169,18 @@ This should present you with the following prompt:
 ```
 
 
-# Demo locations
-## Password cracking demos
+## Demo locations
+### Password cracking demos
 Inside the docker container, the demos are located in the `/root/password-cracking/` directory.
 
 Execute the following commands in the docker shell to start the respective demos.
 
-### Starting the estimator demo
+#### Starting the estimator demo
 ```
 /estimator
 ```
 
-### Starting the generator demo
+#### Starting the generator demo
 ```
 /generator
 ```
@@ -182,16 +189,16 @@ Note: When creating a scrypt hash to be cracked, use hashcat! JtR won't work.
 
 
 
-## Wordlists
+### Wordlists
 The rockyou.txt and a dutch wordlist are included by default and can be found in `/usr/share/wordlists/` inside the docker container. They can be used by various brute forcing applications to do dictionary and wordlist attacks.
 
-# Extra information
+## Extra information
 The following section contains additional information on working with the docker image. These steps are **NOT**  required for setting up the demo environment.
 
-## Exporting and importing
+### Exporting and importing
 The following commands should be ran on the host system, and _not_ in the docker container.
 
-### Exporting a docker container to a tar file
+#### Exporting a docker container to a tar file
 The `docker ps -a` command will list all the docker containers that have been created. From this list you can select a container to export.
 ```
 $ docker ps -a
@@ -207,7 +214,7 @@ Once the command completes, you can gzip the file to save some space if you so d
 ```
 gzip my_container.tar
 ```
-### Importing a docker container
+#### Importing a docker container
 When you're ready to import your docker container again you can do so using the `docker import` command. Don't forget to decompress it first if you compressed it after exporting. You can use `gzip -d my_container.tar.gz` if you followed the above export instructions. When you have your .tar file ready you can import it and give it a name.
 
 ```
@@ -218,5 +225,5 @@ The image will now show up in your image listing when you use the `docker images
 docker run -t -i my_container /bin/bash
 ```
 
-### Note on exported containers
+#### Note on exported containers
 Exporting and importing a docker container loses all of it's history in docker. If you want to retain you docker image layers use the `docker save` command instead.

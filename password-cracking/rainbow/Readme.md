@@ -85,3 +85,5 @@ If you are using the **generator.rb** script to generate your LM hash to crack w
 
 ## Note on the included rainbow table
 We utilize a demo rainbow table included with the demo docker image. Please note that this is a very minimal rainbow table in order to reduce its size on disk. It has been tested to find the hash included with this demo but it may fail to find other hashes more often than a full rainbow table would.
+
+Regenerate with `cd /RainbowCrack-NG/src/ && rtgen lm alpha-numeric 1 7 1 3800 33554432 0` 
