@@ -1,4 +1,8 @@
 FROM kalilinux/kali-last-release
+
+ARG TARGETARCH
+RUN echo "Detected target architecture is ${TARGETARCH}"
+
 RUN apt-get update && apt-get install \
   apache2 \
   bundler \
@@ -12,15 +16,25 @@ RUN apt-get update && apt-get install \
   wordlists \
   gcc \
   make \
+  -y
+
+# rcrack has not build a package for arm64, so if we are on arm64, then build it ourselves
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+  apt-get install \
   git \
   build-essential \
   openssl \
   libssl-dev \
-  -y
-
-RUN git clone https://github.com/bakeromso/RainbowCrack-NG.git /RainbowCrack-NG
-RUN cd /RainbowCrack-NG && git checkout 7e5e3465c6cbcbb3e79fdff86d71e0aaa771cb2f
-RUN cd /RainbowCrack-NG/src && make install
+  -y; \
+  git clone https://github.com/bakeromso/RainbowCrack-NG.git /RainbowCrack-NG && \
+  cd /RainbowCrack-NG && \
+  git checkout 7e5e3465c6cbcbb3e79fdff86d71e0aaa771cb2f && \
+  cd /RainbowCrack-NG/src &&\
+  make install; \
+  # If we're building for anything else but arm64, just install rainbowcrack from the kali repos
+  else \
+  apt-get install rainbowcrack -y;\
+  fi
 
 COPY password-cracking /root/password-cracking
 RUN gzip -d /usr/share/wordlists/rockyou.txt.gz
