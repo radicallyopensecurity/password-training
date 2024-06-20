@@ -2,16 +2,16 @@ GEM
   remote: https://rubygems.org/
   specs:
     bcrypt (3.1.12)
-    highline (1.7.8)
-    smbhash (1.0.2)
+    highline (3.0.1)
+    smbhash (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
+  bcrypt (= 3.1.12)
   highline
   smbhash
 
 BUNDLED WITH
-   2.2.5
+   2.5.13
