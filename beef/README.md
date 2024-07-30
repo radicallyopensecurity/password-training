@@ -10,7 +10,7 @@ After following these steps, BeEF will be up and running, as well as Juice Shop.
 
 ## Prerequisites
 
-Have `docker` and `docker-compose` installed.
+Have `docker` and `docker compose` installed.s
 
 ## Startup
 
@@ -18,7 +18,7 @@ In order to start the demo environment, go to this directory, and perform the
 following command:
 
 ```console
-docker-compose up --detach
+docker compose up --detach
 ```
 
 This will build a Docker image with the BeEF application installed, and launch
@@ -55,7 +55,7 @@ In order to stop the demo environment, go to this, directory, and perform the
 following command:
 
 ```console
-docker-compose down
+docker compose down
 ```
 
 ### Configuration
