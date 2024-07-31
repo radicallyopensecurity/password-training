@@ -1,0 +1,4 @@
+http://localhost:8088 {
+	root * /srv
+	file_server
+}

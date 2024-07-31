@@ -12,11 +12,25 @@ services:
       - ./config.yaml:/beef/config.yaml
       - ./droppers:/beef/extensions/demos/html/droppers/
   juice-shop:
-    platform: "linux/amd64"
     container_name: juice-shop
-    image: bkimminich/juice-shop:v13.3.0
+    image: bkimminich/juice-shop
     ports:
       - 127.0.0.1:3500:3000
     environment:
       - NODE_ENV=quiet
     restart: unless-stopped
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:
+
+

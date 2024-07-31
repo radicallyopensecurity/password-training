@@ -175,7 +175,7 @@ JavaScript_ module. Paste the following code in the JavaScript Code window:
 ```
 var b = document.createElement('script');
 b.type = 'text/javascript';
-b.src = 'http://extract.pw/shake.js';
+b.src = 'http://localhost:8088/shake.js';
 document.body.appendChild(b);
 ```
 
