@@ -44,7 +44,7 @@ Open your `hosts` file and add the following lines:
 ```
 
 Now, the BeEF application should be accessible using
-[http://beef.local:3000](http://beef.local:3000).
+[http://beef.local:3000/ui/panel](http://beef.local:3000/ui/panel).
 
 Juice Shop should be accessible using
 [http://vulnerable.local:3500](http://vulnerable.local:3500).
