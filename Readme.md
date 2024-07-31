@@ -16,6 +16,36 @@ Perform the setup steps _before_ you start the training. Installation will take 
 ### Instructions for MacOS
 To run Docker on MacOS, you need to install Docker Desktop. The isntructions on how to install can be found [here](https://docs.docker.com/desktop/mac/install/). After installing, start the application.
 
+#### Change credential store
+
+When getting an error such as 
+
+```
+-[~/git_repos/password-training/beef]
+└─$ sudo docker build -f Dockerfile_old -t beef_old --platform="linux/amd64" .
+[+] Building 0.3s (1/2)                                                                                                                                          docker:desktop-linux
+[+] Building 0.4s (2/2) FINISHED                                                                                                                                 docker:desktop-linux
+ => [internal] load build definition from Dockerfile_old                                                                                                                         0.0s
+ => => transferring dockerfile: 1.93kB                                                                                                                                           0.0s
+ => ERROR [internal] load metadata for docker.io/library/ruby:2.7.5-alpine                                                                                                       0.4s
+------
+ > [internal] load metadata for docker.io/library/ruby:2.7.5-alpine:
+------
+Dockerfile_old:1
+--------------------
+   1 | >>> FROM ruby:2.7.5-alpine AS builder
+   2 |     LABEL maintainer="Beef Project: github.com/beefproject/beef"
+   3 |     
+--------------------
+ERROR: failed to solve: ruby:2.7.5-alpine: failed to resolve source metadata for docker.io/library/ruby:2.7.5-alpine: error getting credentials - err: exit status 1, out: ``
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/zjmevxk1hn5qp2t450uz1s2eh
+ 
+```
+
+Try the following fix (found [here](https://forums.docker.com/t/error-failed-to-solve-error-getting-credentials-err-exit-status-1-out/136124/6)). `sudo nano ~/.docker/config.json` and change `desktop` into `osxkeychain`. This may resolve the issue.
+
+
 ### Instructions for Ubuntu 20.04 (Hirsute)
 1.  Update apt cache and install base packages
 ```

@@ -10,7 +10,7 @@ After following these steps, BeEF will be up and running, as well as Juice Shop.
 
 ## Prerequisites
 
-Have `docker` and `docker compose` installed.s
+Have `docker` and `docker compose` installed.
 
 ## Startup
 
@@ -18,25 +18,25 @@ In order to start the demo environment, go to this directory, and perform the
 following command:
 
 ```console
-docker compose up --detach
+sudo docker compose up --detach
 ```
 
 This will build a Docker image with the BeEF application installed, and launch
 it as container in the background, listening on
-[port 3000](http://127.0.0.1:3000). The first time may be a bit slow, as the
+[localhost port 3000](http://127.0.0.1:3000). The first time may be a bit slow, as the
 image needs to be built from scratch.
 
 It will also pull a Docker image for Juice Shop, which will be listening on
-[port 3500](http://127.0.0.1:3500)
+[localhost port 3500](http://127.0.0.1:3500)
 
-If everything went okay, visiting that page will show you a generic Apache 2
+If everything went okay, visiting the beef page ([localhost port 3000](http://127.0.0.1:3500)) will show you a generic Apache 2
 Test Page.
 
 ## Host file configuration
 
-In order to make the demo more like a real-world scenario, add the following
-entries to the `/etc/hosts` file (note: under Windows, this file can be found
-under `C:\Windows\System32\drivers\etc\hosts`):
+In order to make the demo more like a real-world scenario, we have to modify the `hosts file`. For macOS and Linux, this file is found at `/etc/hosts`. Windows users can find this file at `C:\Windows\System32\drivers\etc\hosts`.
+
+Open your `hosts` file and add the following lines:
 
 ```
 127.0.0.1 beef.local

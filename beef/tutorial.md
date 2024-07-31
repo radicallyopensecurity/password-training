@@ -1,9 +1,10 @@
 # BeEF Tutorial
 
-This tutorial assumes you followed the [installation instructions](README.md)
-and that the BeEF application is up and running, and can be reached at
-[http://beef.local:3000](http://beef.local:3000), and that Juice Shop is up and
-running, and can be reached at
+This tutorial assumes that 
+1. you followed the [installation instructions](README.md)
+2. the BeEF application is up and running, and can be reached at
+[http://beef.local:3000/ui/panel](http://beef.local:3000/ui/panel)
+3.  and that Juice Shop is up and running, and can be reached at
 [http://vulnerable.local:3500](http://vulnerable.local:3500).
 
 Let's see what you can do with BeEF: This tutorial will show you, as an

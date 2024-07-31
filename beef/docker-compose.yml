@@ -1,6 +1,3 @@
----
-version: "3.5"
-
 services:
   beef:
     container_name: beef
@@ -15,6 +12,7 @@ services:
       - ./config.yaml:/beef/config.yaml
       - ./droppers:/beef/extensions/demos/html/droppers/
   juice-shop:
+    platform: "linux/amd64"
     container_name: juice-shop
     image: bkimminich/juice-shop:v13.3.0
     ports:
