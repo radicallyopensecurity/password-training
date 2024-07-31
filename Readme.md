@@ -2,7 +2,7 @@
 This repository contains several demonstrations that could be used in security awareness trainings on the topic of password security.
 
 ## Technical requirements
-These demonstations use docker to setup a container, based off the kali linux distribution. Therefore it is necessary to set up docker before attempting to preform the demonstrations. Details for Ubuntu 20.04 and Windows 10 will be provided below.
+These demonstations use docker to setup a container, based off the kali linux distribution. Therefore it is necessary to set up docker before attempting to preform the demonstrations. Details for Ubuntu 20.04, Windows 10 and macOS will be provided below.
 
 ---
 **NOTE**
