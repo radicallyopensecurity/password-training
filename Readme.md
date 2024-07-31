@@ -2,7 +2,7 @@
 This repository contains several demonstrations that could be used in security awareness trainings on the topic of password security.
 
 ## Technical requirements
-These demonstations use docker to setup a container, based off the kali linux distribution. Therefore it is necessary to set up docker before attempting to preform the demonstrations. Details for Ubuntu 20.04 and Windows 10 will be provided below.
+These demonstations use docker to setup a container, based off the kali linux distribution. Therefore it is necessary to set up docker before attempting to preform the demonstrations. Details for Ubuntu 20.04, Windows 10 and macOS will be provided below.
 
 ---
 **NOTE**
@@ -122,21 +122,6 @@ Note: Windows will need to be restarted as part of the installation process.
 
 At one point, it will ask you to install WSL. Follow the instruction presented.
 Upon completion, restart docker.
-
-
-
-## (?) Enter kali linux container shell
-```
-$ ./run.sh
-```
-This should present you with the following prompt:
-```
-┌──(root㉿2bc68ff2fe4b)-[/]
-└─# 
-
-```
-
-
 
 
 ## Setting up the docker image for use
