@@ -124,21 +124,6 @@ At one point, it will ask you to install WSL. Follow the instruction presented.
 Upon completion, restart docker.
 
 
-
-## (?) Enter kali linux container shell
-```
-$ ./run.sh
-```
-This should present you with the following prompt:
-```
-┌──(root㉿2bc68ff2fe4b)-[/]
-└─# 
-
-```
-
-
-
-
 ## Setting up the docker image for use
 ### Build the docker image
 Perform this step before the training. This step requires an internet connection.
