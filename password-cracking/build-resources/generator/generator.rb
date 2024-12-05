@@ -61,7 +61,7 @@ tool = nil
 choose do |menu|
   menu.header = 'Cracking tools'
   menu.prompt = 'Choose a tool: '
-  menu.choice :john do tool = :john end
+  menu.choice :john do tool = :john end unless type == :scrypt
   menu.choice :hashcat do tool = :hashcat end
 
   menu.default = :john
@@ -86,7 +86,7 @@ charset   = ''
 charpatt  = ''
 
 if method == :wordlist
-  wordlist = ask( 'Wordlist file:  ' ) { |q| q.default = '/usr/share/wordlists/rockyou.txt' }
+  wordlist = ask( 'Wordlist file:  ' ) { |q| q.default = '/root/rockyou.txt' }
 elsif method == :bruteforce
   # Determine password character set
   charsets = {
@@ -197,5 +197,15 @@ end
 # Write hash to file
 File.write("hash_#{tool}_#{type}_#{method}.txt", hash)
 
-puts ""
-puts cmd
+# Suggest and run the command
+run_command = ask("Run command? (Y/n) ") { |q| q.default = 'Y' }
+
+if run_command.downcase == 'y'
+  system(cmd)
+else
+  puts "Command not executed."
+end
+
+# puts ""
+# puts cmd
+

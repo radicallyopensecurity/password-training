@@ -1,16 +1,11 @@
 #
-# Copyright (c) 2006-2022 Wade Alcorn - wade@bindshell.net
-# Browser Exploitation Framework (BeEF) - http://beefproject.com
+# Copyright (c) 2006-2024 Wade Alcorn - wade@bindshell.net
+# Browser Exploitation Framework (BeEF) - https://beefproject.com
 # See the file 'doc/COPYING' for copying permission
 #
 # BeEF Configuration file
 
 beef:
-    # Credentials to authenticate in BeEF.
-    # Used by both the RESTful API and the Admin interface
-    credentials:
-        user:   beefadmin
-        passwd: difficultpassword
     version: '0.5.4.0'
     # More verbose messages (server-side)
     debug: false
@@ -18,6 +13,13 @@ beef:
     client_debug: false
     # Used for generating secure tokens
     crypto_default_value_length: 80
+
+    # Credentials to authenticate in BeEF.
+    # Used by both the RESTful API and the Admin interface
+    credentials:
+        user:   "beefadmin"
+        passwd: "difficultpassword"
+
     # Interface / IP restrictions
     restrictions:
         # subnet of IP addresses that can hook to the framework
@@ -30,7 +32,7 @@ beef:
         # slow API calls to 1 every  api_attempt_delay  seconds
         api_attempt_delay: "0.05"
 
-    # HTTP server
+    # HTTP server 
     http:
         debug: false #Thin::Logging.debug, very verbose. Prints also full exception stack trace.
         host: "0.0.0.0"
@@ -53,11 +55,10 @@ beef:
              port: 3000
         #     https: false # true/false
 
-        # Reverse Proxy / NAT
-        # If you want BeEF to be accessible behind a reverse proxy or NAT,
-        #   set both the publicly accessible hostname/IP address and port below:
-        # NOTE: Allowing the reverse proxy will enable a vulnerability where the ui/panel can be spoofed
-        #   by altering the X-FORWARDED-FOR ip address in the request header.
+        # If using any reverse proxy you should also set allow_reverse_proxy to true below.
+        # Note that this causes the BeEF server to trust the X-Forwarded-For HTTP header.
+        # If the BeEF server is directly accessible, clients can spoof their connecting
+        # IP address using this header to bypass the IP address permissions/exclusions.
         allow_reverse_proxy: false
 
         # Hook

