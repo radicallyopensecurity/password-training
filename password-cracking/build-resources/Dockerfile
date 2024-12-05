@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install \
 
 # # Clone the repository and checkout the specific commit
 # RUN if [ "$TARGETARCH" = "arm64" ]; then \
-#       git clone https://github.com/bakeromso/RainbowCrack-NG.git /root/password-cracking-resources/RainbowCrack-NG && \
+#       git clone https://github.com/radicallyopensecurity/RainbowCrack-NG.git /root/password-cracking-resources/RainbowCrack-NG && \
 #       cd /root/password-cracking-resources/RainbowCrack-NG && \
 #       git checkout 7e5e3465c6cbcbb3e79fdff86d71e0aaa771cb2f; \
 #     fi
@@ -69,7 +69,7 @@ RUN ln -s /root/password-cracking-resources/estimator/run.sh /root/estimator
 RUN ln -s /root/password-cracking-resources/generator/run.sh /root/generator
 
 ## commented out because rainbowtables example is unmaintained
-# ADD https://github.com/bakeromso/password-training/ /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt
+# ADD https://github.com/radicallyopensecurity/password-training/ /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt
 # RUN cd /root/password-cracking-resources/memory && make
 
 # Remove build packages and clean up

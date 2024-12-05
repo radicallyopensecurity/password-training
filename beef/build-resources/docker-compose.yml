@@ -3,7 +3,7 @@ services:
     container_name: beef
     extra_hosts:
       - beef.local:127.0.0.1
-    image: "ghcr.io/bakeromso/training-beef:latest"
+    image: "ghcr.io/radicallyopensecurity/training-beef:latest"
     build: .
     ports:
       - 127.0.0.1:3000:3000
