@@ -3,19 +3,20 @@ services:
     container_name: beef
     extra_hosts:
       - beef.local:127.0.0.1
-    image: ros/beef
+    image: "ghcr.io/radicallyopensecurity/training-beef:latest"
     build: .
     ports:
       - 127.0.0.1:3000:3000
     restart: unless-stopped
     volumes:
-      - ./config.yaml:/beef/config.yaml
+      - ../config.yaml:/beef/config.yaml
       - ./droppers:/beef/extensions/demos/html/droppers/
   juice-shop:
     container_name: juice-shop
-    image: bkimminich/juice-shop
+    image: bkimminich/juice-shop:v17.1.0
     ports:
       - 127.0.0.1:3500:3000
+      - 127.0.0.1:8080:8080
     environment:
       - NODE_ENV=quiet
     restart: unless-stopped

@@ -1,0 +1,1 @@
+echo "Welcome to the password cracking container. Run ./estimator for the estimator demo, and ./generator for the generator demo."

@@ -1,0 +1,6 @@
+[submodule "password-cracking/build-resources/beef-upstream"]
+	path = password-cracking/build-resources/beef-upstream
+	url = git@github.com:beefproject/beef.git
+[submodule "beef/build-resources/beef-upstream"]
+	path = beef/build-resources/beef-upstream
+	url = git@github.com:beefproject/beef.git
