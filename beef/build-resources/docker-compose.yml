@@ -4,7 +4,6 @@ services:
     extra_hosts:
       - beef.local:127.0.0.1
     image: "ghcr.io/radicallyopensecurity/training-beef:latest"
-    build: .
     ports:
       - 127.0.0.1:3000:3000
     restart: unless-stopped
@@ -13,7 +12,7 @@ services:
       - ./droppers:/beef/extensions/demos/html/droppers/
   juice-shop:
     container_name: juice-shop
-    image: bkimminich/juice-shop:v17.1.0
+    image: bkimminich/juice-shop@sha256:57170ba190744b9e22469d9ab5934946cd3e53e2e66b12e4c0c1019e1bea7a6b
     ports:
       - 127.0.0.1:3500:3000
       - 127.0.0.1:8080:8080
@@ -21,7 +20,7 @@ services:
       - NODE_ENV=quiet
     restart: unless-stopped
   caddy:
-    image: caddy:latest
+    image: caddy@sha256:a863d46cf06a9084f36cbffbe9f4ad046971dca32f79c68129aaf15ad356d6ce
     restart: unless-stopped
     ports:
       - "8088:8088"
