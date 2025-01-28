@@ -7,25 +7,48 @@ Make sure to include submodules when cloning this repo, otherwise beef won't bui
 git clone --recurse-submodules <repository-url>
 ``` 
 
+## Login to GitHub Container Registry ghcr.io
+In order to push packages to the repo from your commandline, you need to login on your terminal. One way to do this is to get a GitHub (legacy/classic) Personal Access Token from https://github.com/settings/tokens. Make sure to give the key permissions to `write:packages` and `delete:packages`.
+
+`docker login --username [your github username] ghcr.io`. This will prompt you for a password. Paste the Personal Access Token you just created and press enter.
+
+
 ## Build docker image
 (from REPO_DIR)
 
+To build locally
+
 On Linux and Mac:
 ```
-./build.sh
+./developers/build-locally.sh
 ```
 For Windows hosts:
 ```
-./build.bat
+./developers/build-locally.bat
 ```
 
-* Builds docker images
-* Uses the current working directory as build context (.)
-* Uses the dockerfile ./Dockerfile
-* Tags the resulting image with "training-XXX:latest" (-t)
-* pushes the build files to the GitHub repository's package registry
+To build and push to registry:
+
+On Linux and Mac:
+```
+./developers/build-and-push.sh
+```
+
   
 ## Troubleshoot
+
+### ERROR: Cannot connect to the Docker daemon
+
+If you're working from linux:
+```
+sudo systemctl start docker
+```
+
+From windows or MacOS: Start the docker desktop application and start the engine.
+
+### MacOS error getting credentials
+
+Unlock keychain in current session: `security -v unlock-keychain ~/Library/Keychains/login.keychain-db`
 
 ### MacOS build error
 

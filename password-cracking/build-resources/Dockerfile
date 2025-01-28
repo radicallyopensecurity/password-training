@@ -72,9 +72,9 @@ RUN ln -s /root/password-cracking-resources/generator/run.sh /root/generator
 # ADD https://github.com/radicallyopensecurity/password-training/ /usr/share/rainbowtables/lm_alpha-numeric#1-7_1_3800x33554432_0.rt
 # RUN cd /root/password-cracking-resources/memory && make
 
-# Remove build packages and clean up
-RUN if [ "$TARGETARCH" = "arm64" ]; then \
-      apt-get remove ${buildpackages} -y && \
-      apt-mark manual sudo && \
-      apt-get autoremove -y; \
-    fi
+# # Remove build packages and clean up
+# RUN if [ "$TARGETARCH" = "arm64" ]; then \
+#   apt-get remove ${buildpackages} -y && \
+#   apt-mark manual sudo && \
+#   apt-get autoremove -y; \
+#   fi
