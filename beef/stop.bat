@@ -1,2 +1,2 @@
 @echo off
-docker-compose -f build-resources/docker-compose.yml down
+docker-compose -f build-resources/docker-compose.yml --project-name beef-compose down

@@ -6,14 +6,14 @@
 # check if none are left running (e.g., from previous versions)
 
 # Define the keywords to match in image names
-KEYWORDS="beef|juice|caddy"
+KEYWORDS="beef|juice|caddy|nodejs"
 
 # List all running containers and filter by image name using grep with extended regex
-CONTAINER_IDS=$(docker ps --format "{{.ID}} {{.Image}}" | grep -E "$KEYWORDS" | awk '{print $1}')
+CONTAINER_IDS=$(docker ps --format "{{.ID}} {{.Image}} {{.Names}} {{.Command}}" | grep -E "$KEYWORDS" | awk '{print $1}' | tr '\n' ' ')
 
 # Check if there are any containers to stop and remove
 if [ -n "$CONTAINER_IDS" ]; then
-  echo "There are still containers running that are based on an image matching '$KEYWORDS'. These are probably leftovers from an earlier version/run."
+  echo "There are still containers running whose name or base image match '$KEYWORDS'. These are probably leftovers from an earlier version/run."
   echo "more details by 'docker ps' filtered to these ids:"
   echo 
   # Display the docker ps output for only the matched container IDs
@@ -30,4 +30,4 @@ fi
 docker compose -f build-resources/docker-compose.yml pull
 
 # Attempt to bring up the services
-docker compose -f build-resources/docker-compose.yml up -d --remove-orphans 2>&1
+docker compose -f build-resources/docker-compose.yml --project-name beef-compose up -d --remove-orphans 2>&1

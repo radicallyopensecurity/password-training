@@ -33,4 +33,4 @@ REM Pull the latest images
 docker-compose -f build-resources/docker-compose.yml pull
 
 REM Attempt to bring up the services
-docker-compose -f build-resources/docker-compose.yml up -d --remove-orphans 2>&1
+docker-compose -f build-resources/docker-compose.yml --project-name beef-compose up -d --remove-orphans 2>&1
